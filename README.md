@@ -12,10 +12,9 @@ Paste [`setup.md`](setup.md) into Claude Code and it does it for you. Or by hand
 git clone https://github.com/Pawel-Kica/claude-code-100.git
 cd claude-code-100
 
+mkdir -p ~/.claude/skills
 for s in skills/*/*/; do
-  name="$(basename "$s")"
-  mkdir -p ~/.claude/skills/"$name"
-  ln -sf "$PWD/${s}SKILL.md" ~/.claude/skills/"$name"/SKILL.md
+  ln -sfn "$PWD/${s%/}" ~/.claude/skills/"$(basename "$s")"
 done
 ```
 

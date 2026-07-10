@@ -5,7 +5,7 @@ Paste this into Claude Code. It installs the skills for you.
 ```
 Clone https://github.com/Pawel-Kica/claude-code-100 somewhere you keep things long-term.
 
-Then, for every skill in skills/*/*/, symlink its SKILL.md into ~/.claude/skills/<name>/SKILL.md, and copy any sibling folders (html has an examples/) next to it.
+Then, for every skill folder in skills/*/*/, symlink the whole folder into ~/.claude/skills/ under its own name. The folder, not just the SKILL.md: html ships an examples/ it links to.
 
 If I already have a skill by that name, stop and ask before touching it.
 
