@@ -47,13 +47,27 @@ Prompts you just copy and paste. Nothing to install.
 | | |
 |---|---|
 | [afk-mode](skills/engineering/afk-mode/SKILL.md) | Takes the task end to end. No questions. Leaves a report. |
-| [html](skills/engineering/html/SKILL.md) | Renders an answer as a page and opens it. For things markdown ruins. |
+| [scope](skills/engineering/scope/SKILL.md) | Fuzzy idea into an implement-ready PRD. Research, grill, prototype, write. |
+| [research](skills/engineering/research/SKILL.md) | Web, codebase, past sessions. Light to ultra depth. |
+| [to-prd](skills/engineering/to-prd/SKILL.md) | Writes the decided context into a PRD. |
+| [prd-implement](skills/engineering/prd-implement/SKILL.md) | Builds the PRD. Smoke test, review, recap. Never commits. |
+| [prototype](skills/engineering/prototype/SKILL.md) | Throwaway code that answers a design question. |
+| [throwaway-prototype](skills/engineering/throwaway-prototype/SKILL.md) | One standalone HTML page, variants on a query param. |
+| [simple-code-review](skills/engineering/simple-code-review/SKILL.md) | Fresh eyes on the diff after you implement. |
+| [thermo-nuclear-code-quality-review](skills/engineering/thermo-nuclear-code-quality-review/SKILL.md) | Harsh audit: abstractions, file size, spaghetti. |
+| [ponytail-review](skills/engineering/ponytail-review/SKILL.md) | Over-engineering only. What to delete, what stdlib already does. |
+| [super-code-review](skills/engineering/super-code-review/SKILL.md) | Runs the three reviewers in parallel, merges into one HTML verdict. |
+
+The scope pipeline writes PRDs to `~/.claude/prds/`, never into your repo. `prd-implement` copies the one you name into `AI/prds/` and builds it.
 
 ### productivity
 
 | | |
 |---|---|
 | [caveman](skills/productivity/caveman/SKILL.md) | Cuts the fluff, keeps the substance. |
+| [html](skills/productivity/html/SKILL.md) | Renders an answer as a page and opens it. For things markdown ruins. |
+| [clipboard-copy](skills/productivity/clipboard-copy/SKILL.md) | Pulls one piece of the last reply to your clipboard. |
+| [past-conversations](skills/productivity/past-conversations/SKILL.md) | Search or resume past Claude Code chats by topic. |
 
 ## What works
 
@@ -69,7 +83,7 @@ Prompts you just copy and paste. Nothing to install.
 
 ## Credit
 
-`grilling` and `grill-me` are Matt Pocock's, copied as-is from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock).
+`grilling`, `grill-me` and `prototype` are Matt Pocock's, copied as-is from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock).
 
 ## License
 

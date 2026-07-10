@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code review — HubSpot meetings/products</title>
+<style>
+  :root{
+    --cream:#F6F2EA; --ink:#1A1814; --muted:#6B6458; --line:#E0D8C8;
+    --accent:#C8553D; --card:#FFFDF8;
+    --del:#B23A2E; --delbg:#FBEDEA; --add:#3C6E47; --addbg:#EBF3EC;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.5;font-size:16px}
+  .wrap{max-width:860px;margin:0 auto;padding:44px 24px 90px}
+  h1{font-family:Georgia,serif;font-weight:600;font-size:28px;margin:0 0 5px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 4px}
+  .scope{color:var(--muted);font-size:13px;margin:0 0 24px}
+  .scope code{background:#EEE7D7;padding:1px 6px;border-radius:4px;font-size:12px}
+  .verdict{display:flex;align-items:center;gap:14px;background:var(--card);
+    border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:8px;padding:14px 18px;margin:0 0 26px}
+  .verdict .big{font-family:Georgia,serif;font-size:18px;font-weight:600;color:var(--accent)}
+  .verdict .why{color:var(--muted);font-size:14px}
+
+  .finding{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px 18px;margin:0 0 18px}
+  .fhead{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+  .rank{font-family:Georgia,serif;font-weight:700;font-size:20px;color:var(--accent);min-width:24px;line-height:1}
+  .ftitle{font-weight:600;font-size:15.5px;flex:1}
+  .loc{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--accent);
+    background:#F3ECDD;padding:2px 7px;border-radius:4px;white-space:nowrap;align-self:center}
+  .body{font-size:14px;color:#2A271F;margin:6px 0 12px;padding-left:36px}
+  .body p{margin:0}
+  .body code{background:#F1EADb;padding:0 4px;border-radius:3px;font-size:12.5px}
+
+  .hunks{padding-left:36px;display:flex;flex-direction:column;gap:10px}
+  .hunk{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .hunklabel{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--muted);
+    background:#FBF7EE;border-bottom:1px solid var(--line);padding:5px 12px}
+  .diff{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.65}
+  .dl{display:grid;grid-template-columns:18px 1fr}
+  .dl .sg{text-align:center;user-select:none;color:#b3a98f;padding-top:1px}
+  /* wrap instead of scroll: continuation lines hang-indent under the code column */
+  .dl .tx{padding:1px 10px 1px 2px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
+  .dl.ctx{color:#5b5547}
+  .dl.del{background:var(--delbg)} .dl.del .sg{color:var(--del);font-weight:700}
+  .dl.add{background:var(--addbg)} .dl.add .sg{color:var(--add);font-weight:700}
+  .wdel{background:#F0C3BB;border-radius:3px;padding:0 1px}
+  .wadd{background:#BFE0C4;border-radius:3px;padding:0 1px}
+
+  .foot{color:var(--muted);font-size:12.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Code review — HubSpot meetings/products</h1>
+  <p class="sub">Fresh-eyes review. Code is source of truth; PRD ignored as spec.</p>
+  <p class="scope">Scope: <b>unstaged working changes</b> — <code>hubspot.py</code>, <code>hubspot-config-modal.tsx</code>, <code>integrations-page.tsx</code>. No edits applied.</p>
+
+  <div class="verdict">
+    <span class="big">Fix before ship</span>
+    <span class="why">3 things to fix, ranked most-important first.</span>
+  </div>
+
+  <!-- F1: single hunk, multi-line, long line wraps -->
+  <div class="finding">
+    <div class="fhead"><span class="rank">1</span>
+      <span class="ftitle">DealsPane effect can infinite-loop, freezing the modal</span>
+      <span class="loc">modal:1567</span></div>
+    <div class="body"><p>When <code>firstStage()</code> returns <code>""</code>, the override keeps <code>start_stage:""</code>, so <code>setCfg</code> fires every render and the effect re-runs forever.</p></div>
+    <div class="hunks">
+      <div class="hunk">
+        <div class="diff">
+          <div class="dl del"><span class="sg">-</span><span class="tx">if (overrides.some((o) =&gt; <span class="wdel">!o.start_stage</span>)) {</span></div>
+          <div class="dl add"><span class="sg">+</span><span class="tx">if (overrides.some((o) =&gt; <span class="wadd">!o.start_stage &amp;&amp; firstStage(o.pipeline_id)</span>)) {</span></div>
+          <div class="dl ctx"><span class="sg"> </span><span class="tx">  setCfg("event_pipeline_overrides",</span></div>
+          <div class="dl ctx"><span class="sg"> </span><span class="tx">    overrides.map((o) =&gt;</span></div>
+          <div class="dl del"><span class="sg">-</span><span class="tx">      <span class="wdel">o.start_stage</span> ? o : { ...o, start: firstStage(o.pipeline_id) }))</span></div>
+          <div class="dl add"><span class="sg">+</span><span class="tx">      <span class="wadd">o.start_stage || !firstStage(o.pipeline_id)</span> ? o : { ...o, start: firstStage(o.pipeline_id) }))</span></div>
+          <div class="dl ctx"><span class="sg"> </span><span class="tx">}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F2: single hunk, one line -->
+  <div class="finding">
+    <div class="fhead"><span class="rank">2</span>
+      <span class="ftitle">Sync-activity reads a deal event name that's never written</span>
+      <span class="loc">hubspot.py:570</span></div>
+    <div class="body"><p>Code logs <code>deal_synced</code>/<code>deal_pulled</code> now; the query still asks for <code>deal_created</code>. "Last deal sync" stays null.</p></div>
+    <div class="hunks">
+      <div class="hunk">
+        <div class="diff">
+          <div class="dl del"><span class="sg">-</span><span class="tx">last_deal = events.filter(<span class="wdel">event_type='deal_created'</span>).first()</span></div>
+          <div class="dl add"><span class="sg">+</span><span class="tx">last_deal = events.filter(<span class="wadd">event_type__in=('deal_synced', 'deal_pulled')</span>).first()</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F3: ONE finding, THREE hunks across different lines -->
+  <div class="finding">
+    <div class="fhead"><span class="rank">3</span>
+      <span class="ftitle">"latest booking" reimplemented 3× instead of the model property</span>
+      <span class="loc">hubspot.py:913, 932, 967</span></div>
+    <div class="body"><p><code>Deal.latest_booking</code> is the single definition for the whole app. Three raw queries drift the day ordering changes. Same fix in all three spots:</p></div>
+    <div class="hunks">
+      <div class="hunk">
+        <div class="hunklabel">hubspot.py:913 — deal_stage_for()</div>
+        <div class="diff">
+          <div class="dl del"><span class="sg">-</span><span class="tx">latest_booking = <span class="wdel">deal.bookings.order_by('-created_at').first()</span></span></div>
+          <div class="dl add"><span class="sg">+</span><span class="tx">latest_booking = <span class="wadd">deal.latest_booking</span></span></div>
+        </div>
+      </div>
+      <div class="hunk">
+        <div class="hunklabel">hubspot.py:932 — sync_deal()</div>
+        <div class="diff">
+          <div class="dl del"><span class="sg">-</span><span class="tx">booking = <span class="wdel">deal.bookings.order_by('-created_at').first()</span></span></div>
+          <div class="dl add"><span class="sg">+</span><span class="tx">booking = <span class="wadd">deal.latest_booking</span></span></div>
+        </div>
+      </div>
+      <div class="hunk">
+        <div class="hunklabel">hubspot.py:967 — push_deal_properties()</div>
+        <div class="diff">
+          <div class="dl del"><span class="sg">-</span><span class="tx">last = <span class="wdel">deal.bookings.order_by('-created_at').first()</span></span></div>
+          <div class="dl add"><span class="sg">+</span><span class="tx">last = <span class="wadd">deal.latest_booking</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">Findings only, no edits applied. Want the top items fixed inline? Say which.</p>
+</div>
+</body>
+</html>
