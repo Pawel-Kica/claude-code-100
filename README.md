@@ -1,6 +1,6 @@
 # claude code 100
 
-The prompts and skills I actually run with Claude Code.
+Extremely useful prompts and skills for Claude Code.
 
 ## Install
 
