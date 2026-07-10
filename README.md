@@ -6,16 +6,26 @@ A prompt sets a goal and lets the agent find the path. A skill is a path I've al
 
 ## Install
 
-Paste [`setup.md`](setup.md) into Claude Code and it does it for you. Or by hand:
+Paste this into Claude Code:
+
+```
+Clone https://github.com/Pawel-Kica/claude-code-100.
+
+Then copy every skill folder in skills/*/*/ into ~/.claude/skills/, keeping its own name. The whole folder, not just the SKILL.md: html ships an examples/ it links to.
+
+If I already have a skill by that name, stop and ask before touching it.
+
+When you're done, list what you installed and tell me to reload.
+```
+
+Or do it yourself:
 
 ```bash
 git clone https://github.com/Pawel-Kica/claude-code-100.git
 cd claude-code-100
 
 mkdir -p ~/.claude/skills
-for s in skills/*/*/; do
-  ln -sfn "$PWD/${s%/}" ~/.claude/skills/"$(basename "$s")"
-done
+cp -r skills/*/* ~/.claude/skills/
 ```
 
 Reload Claude Code and type `/`. The folders are for reading, not for loading: Claude Code sees skills flat, by name.
