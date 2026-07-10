@@ -2,8 +2,6 @@
 
 The prompts and skills I actually run with Claude Code.
 
-A prompt sets a goal and lets the agent find the path. A skill is a path I've already walked and want to repeat. Otherwise they're the same thing: text you hand an agent.
-
 ## Install
 
 Paste this into Claude Code:
@@ -17,8 +15,6 @@ If I already have a skill by that name, stop and ask before touching it.
 
 When you're done, list what you installed and tell me to reload.
 ```
-
-Or do it yourself:
 
 ```bash
 git clone https://github.com/Pawel-Kica/claude-code-100.git
@@ -85,7 +81,7 @@ Prompts you just copy and paste. Nothing to install.
 
 ## Credit
 
-`grilling` and `grill-me` are Matt Pocock's, copied as-is from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). Worth reading the rest of them.
+`grilling` and `grill-me` are Matt Pocock's, copied as-is from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock).
 
 ## License
 
