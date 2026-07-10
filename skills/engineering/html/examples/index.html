@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>html skill, examples</title>
+<style>
+  :root{--bg:#F6F2EA;--ink:#1a1a1a;--muted:#6b6257;--accent:#C8553D;--line:#e3dcce;--card:#fffdf8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 24px 90px}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:36px;margin:0 0 8px;letter-spacing:-.01em}
+  .sub{color:var(--muted);margin:0 0 36px;font-size:17px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:14px;transition:border-color .12s}
+  a.card:hover{border-color:var(--accent)}
+  .t{font-family:Georgia,serif;font-size:19px;font-weight:600;margin:0}
+  .k{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin:0 0 4px}
+  .d{color:var(--muted);font-size:14px;margin:4px 0 0}
+  footer{margin-top:36px;color:var(--muted);font-size:14px}
+  footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>html skill, examples</h1>
+  <p class="sub">What the <code>html</code> skill produces. Self-contained pages, no build, no dependencies. Crib the structure and the style.</p>
+
+  <a class="card" href="decision-tree.html">
+    <p class="k">Exploration / Planning</p>
+    <p class="t">Should you add a cache?</p>
+    <p class="d">A decision tree with branches and an option matrix.</p>
+  </a>
+  <a class="card" href="comparison.html">
+    <p class="k">Research / Design</p>
+    <p class="t">REST vs GraphQL vs gRPC</p>
+    <p class="d">A comparison table that ends in an actual verdict.</p>
+  </a>
+  <a class="card" href="code-review.html">
+    <p class="k">Code review</p>
+    <p class="t">Refund handler review</p>
+    <p class="d">An annotated diff with severity-tagged callouts.</p>
+  </a>
+  <a class="card" href="dashboard.html">
+    <p class="k">Reports</p>
+    <p class="t">Weekly ship report</p>
+    <p class="d">Stat cards and a hand-rolled CSS bar chart, no chart library.</p>
+  </a>
+  <a class="card" href="architecture-diagram.html">
+    <p class="k">Diagrams</p>
+    <p class="t">Request flow</p>
+    <p class="d">An architecture flow drawn in inline SVG.</p>
+  </a>
+
+  <footer>Part of the User's <code>html</code> skill.</footer>
+</div>
+</body>
+</html>

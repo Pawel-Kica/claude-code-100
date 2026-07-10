@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REST vs GraphQL vs gRPC</title>
+<style>
+  :root{--bg:#F6F2EA;--ink:#1a1a1a;--muted:#6b6257;--accent:#C8553D;--line:#e3dcce;--card:#fffdf8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:56px 24px 80px}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:34px;margin:0 0 6px;letter-spacing:-.01em}
+  h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:20px;margin:40px 0 12px}
+  .sub{color:var(--muted);margin:0 0 32px;font-size:17px}
+  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px}
+  table{width:100%;min-width:560px;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}
+  thead th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;background:#efe9db}
+  tbody th{font-weight:600;width:160px}
+  tr:last-child td,tr:last-child th{border-bottom:none}
+  .dim{color:var(--muted)}
+  .pick{color:var(--accent);font-weight:600}
+  .verdict{margin-top:24px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:#efe9db;padding:1px 6px;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>REST vs GraphQL vs gRPC</h1>
+  <p class="sub">One internal service talking to a web client and three other services. Which API style?</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead>
+      <tr><th>Dimension</th><th>REST</th><th>GraphQL</th><th>gRPC</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>Best fit</th><td>CRUD, public APIs</td><td>Rich clients, many shapes</td><td class="pick">Service-to-service</td></tr>
+      <tr><th>Payload shape</th><td>JSON, often over-fetches</td><td class="pick">No over-fetching</td><td>Binary protobuf, smallest on the wire</td></tr>
+      <tr><th>Latency</th><td>Fine</td><td>Fine</td><td class="pick">Lowest (binary protobuf)</td></tr>
+      <tr><th>Browser support</th><td class="pick">Native</td><td class="pick">Native</td><td>Needs a proxy</td></tr>
+      <tr><th>Schema / types</th><td class="dim">OpenAPI, optional</td><td class="pick">Built-in</td><td class="pick">Built-in (.proto)</td></tr>
+      <tr><th>Caching</th><td class="pick">HTTP caching for free</td><td class="dim">DIY</td><td class="dim">DIY</td></tr>
+      <tr><th>Learning curve</th><td class="pick">Low</td><td>Medium</td><td>Medium-high</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Verdict</h2>
+  <div class="verdict">
+    <strong>Two styles, not one.</strong> Use <span class="pick">REST</span> for the web client: it's native, cacheable, and nobody needs a tutorial. Use <span class="pick">gRPC</span> for the service-to-service hops where latency and a shared <code>.proto</code> contract earn their keep. Reach for GraphQL only if the client genuinely needs many different shapes from one round trip; otherwise it's a server you now have to babysit.
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code review: refund handler</title>
+<style>
+  :root{--bg:#F6F2EA;--ink:#1a1a1a;--muted:#6b6257;--accent:#C8553D;--line:#e3dcce;--card:#fffdf8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:56px 24px 80px}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:32px;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:var(--muted);margin:0 0 28px;font-size:17px}
+  .file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--muted);margin:28px 0 8px}
+  .diff{background:#fbf8f1;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.7}
+  .line{display:grid;grid-template-columns:48px 1fr;border-bottom:1px solid #f0eadd}
+  .ln{color:#b3aa99;text-align:right;padding:0 10px;user-select:none}
+  .code{padding:0 12px;white-space:pre-wrap;word-break:break-word}
+  .add{background:#eef3ea}.add .code{color:#2f5d34}
+  .del{background:#f6ebe8}.del .code{color:#8a3b2e}
+  .note{margin:0 0 0 48px;border-left:3px solid var(--accent);background:var(--card);padding:10px 14px;font-family:system-ui,sans-serif;font-size:14px}
+  .note .sev{font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:700;color:var(--accent);margin-right:8px}
+  .note.low .sev{color:var(--muted)}
+  .note.low{border-left-color:#9a9384}
+  .note code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+  @media(max-width:420px){.note{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Code review: refund handler</h1>
+  <p class="sub">Two real findings, one high, one low. The diff plus the callout beats a paragraph of prose.</p>
+
+  <div class="file">payments/refund.py</div>
+  <div class="diff">
+    <div class="line del"><div class="ln">42</div><div class="code">- def refund(order_id):</div></div>
+    <div class="line add"><div class="ln">42</div><div class="code">+ def refund(order_id, amount):</div></div>
+    <div class="line"><div class="ln">43</div><div class="code">      order = Order.objects.get(id=order_id)</div></div>
+    <div class="line add"><div class="ln">44</div><div class="code">+     gateway.refund(order.charge_id, amount)</div></div>
+    <div class="line add"><div class="ln">45</div><div class="code">+     order.status = "refunded"</div></div>
+    <div class="line add"><div class="ln">46</div><div class="code">+     order.save()</div></div>
+  </div>
+  <div class="note"><span class="sev">High</span>No idempotency. A retried request refunds twice. Key the gateway call on <code>order_id</code>, or guard on <code>order.status == "refunded"</code> before charging.</div>
+
+  <div class="file" style="margin-top:36px">payments/refund.py</div>
+  <div class="diff">
+    <div class="line add"><div class="ln">44</div><div class="code">+     gateway.refund(order.charge_id, amount)</div></div>
+    <div class="line add"><div class="ln">45</div><div class="code">+     order.status = "refunded"</div></div>
+    <div class="line add"><div class="ln">46</div><div class="code">+     order.save()</div></div>
+  </div>
+  <div class="note low"><span class="sev">Low</span>The gateway call and the DB write aren't atomic. If <code>save()</code> fails, the money's gone but the order still looks unrefunded. You can't roll back a sent refund, so reconcile on a job, or at least wrap the DB writes in <code>transaction.atomic()</code> so the status reflects reality.</div>
+</div>
+</body>
+</html>

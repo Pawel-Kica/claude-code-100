@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request flow</title>
+<style>
+  :root{--bg:#F6F2EA;--ink:#1a1a1a;--muted:#6b6257;--accent:#C8553D;--line:#e3dcce;--card:#fffdf8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:56px 24px 80px}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:34px;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:var(--muted);margin:0 0 28px;font-size:17px}
+  .frame{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+  svg{width:100%;height:auto;display:block}
+  .box{fill:#fbf8f1;stroke:#d8cfbd}
+  .box.hot{fill:#f7ede9;stroke:var(--accent)}
+  .lbl{font:600 14px Georgia,serif;fill:var(--ink)}
+  .sm{font:11px system-ui,sans-serif;fill:var(--muted)}
+  .edge{stroke:#b9b0a0;stroke-width:1.6;fill:none}
+  .legend{display:flex;gap:18px;margin-top:14px;font-size:13px;color:var(--muted)}
+  .chip{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px;border:1px solid var(--accent);background:#f7ede9}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Request flow</h1>
+  <p class="sub">A read request through the stack. Highlighted boxes are on the hot path.</p>
+  <div class="frame">
+    <svg viewBox="0 0 760 300" role="img" aria-label="Request flow diagram">
+      <defs>
+        <marker id="arw" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#b9b0a0"></path>
+        </marker>
+      </defs>
+
+      <!-- edges -->
+      <path class="edge" marker-end="url(#arw)" d="M120,55 L174,55"></path>
+      <path class="edge" marker-end="url(#arw)" d="M300,55 L354,55"></path>
+      <path class="edge" marker-end="url(#arw)" d="M480,55 L534,55"></path>
+      <path class="edge" marker-end="url(#arw)" d="M600,75 L600,114"></path>
+      <path class="edge" marker-end="url(#arw)" d="M540,145 L476,198"></path>
+      <path class="edge" marker-end="url(#arw)" d="M660,55 L700,55 L700,235 L666,235"></path>
+
+      <!-- nodes -->
+      <g>
+        <rect class="box" x="20" y="35" width="100" height="40" rx="8"></rect>
+        <text class="lbl" x="70" y="52" text-anchor="middle">Client</text>
+        <text class="sm" x="70" y="67" text-anchor="middle">browser</text>
+      </g>
+      <g>
+        <rect class="box" x="180" y="35" width="120" height="40" rx="8"></rect>
+        <text class="lbl" x="240" y="52" text-anchor="middle">CDN</text>
+        <text class="sm" x="240" y="67" text-anchor="middle">static + cache</text>
+      </g>
+      <g>
+        <rect class="box" x="360" y="35" width="120" height="40" rx="8"></rect>
+        <text class="lbl" x="420" y="52" text-anchor="middle">Load balancer</text>
+      </g>
+      <g>
+        <rect class="box hot" x="540" y="35" width="120" height="40" rx="8"></rect>
+        <text class="lbl" x="600" y="52" text-anchor="middle">API</text>
+        <text class="sm" x="600" y="67" text-anchor="middle">stateless</text>
+      </g>
+      <g>
+        <rect class="box hot" x="540" y="120" width="120" height="40" rx="8"></rect>
+        <text class="lbl" x="600" y="137" text-anchor="middle">Cache</text>
+        <text class="sm" x="600" y="152" text-anchor="middle">Redis, short TTL</text>
+      </g>
+      <g>
+        <rect class="box" x="360" y="185" width="110" height="40" rx="8"></rect>
+        <text class="lbl" x="415" y="202" text-anchor="middle">Database</text>
+        <text class="sm" x="415" y="217" text-anchor="middle">primary</text>
+      </g>
+      <g>
+        <rect class="box" x="540" y="215" width="120" height="40" rx="8"></rect>
+        <text class="lbl" x="600" y="232" text-anchor="middle">Queue</text>
+        <text class="sm" x="600" y="247" text-anchor="middle">async work</text>
+      </g>
+    </svg>
+    <div class="legend"><span><span class="chip"></span>On the hot path, cache miss falls through to the DB</span></div>
+  </div>
+</div>
+</body>
+</html>

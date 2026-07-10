@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Should you add a cache?</title>
+<style>
+  :root{--bg:#F6F2EA;--ink:#1a1a1a;--muted:#6b6257;--accent:#C8553D;--line:#e3dcce;--card:#FBF8F1;--stop:#9a9384;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:56px 24px 80px}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:34px;margin:0 0 6px;letter-spacing:-.01em}
+  h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:20px;margin:44px 0 14px}
+  .sub{color:var(--muted);margin:0 0 36px;font-size:17px}
+
+  .gate{position:relative;margin:0 0 16px}
+  .gate::after{content:"";position:absolute;left:31px;bottom:-16px;width:2px;height:16px;background:var(--line)}
+  .gate:last-of-type::after{display:none}
+  .q{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+  .step{flex:none;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font:600 14px system-ui;display:flex;align-items:center;justify-content:center}
+  .qt{font-weight:600}
+  .qt small{display:block;font-weight:400;color:var(--muted);font-size:13.5px;margin-top:1px}
+
+  .answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;padding-left:40px}
+  .ans{border:1px solid var(--line);border-radius:10px;padding:13px 16px;background:var(--card)}
+  .ans p{margin:5px 0 0;font-size:15px}
+  .ans.stop{border-left:4px solid var(--stop)}
+  .ans.go{border-left:4px solid var(--accent)}
+  .ans.next{border-left:4px solid var(--accent);display:flex;flex-direction:column;justify-content:center}
+  .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+  .ans.go .lbl,.ans.next .lbl{color:var(--accent)}
+  .next .arw{font-weight:600;margin-top:3px}
+
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}
+  thead th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;background:#efe9db}
+  tr:last-child td{border-bottom:none}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:#efe9db;padding:1px 6px;border-radius:4px}
+  @media(max-width:560px){.answers{grid-template-columns:1fr;padding-left:0}.gate::after{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Should you add a cache?</h1>
+  <p class="sub">Walk the tree before you reach for Redis. Most reads don't need it.</p>
+
+  <div class="gate">
+    <div class="q"><span class="step">1</span><span class="qt">Is this read on a hot path?<small>called often, latency matters</small></span></div>
+    <div class="answers">
+      <div class="ans stop"><span class="lbl">If no</span><p>Don't cache. You're adding a moving part for a path nobody waits on. Revisit if it shows up in a trace.</p></div>
+      <div class="ans next"><span class="lbl">If yes</span><span class="arw">Keep going &darr;</span></div>
+    </div>
+  </div>
+
+  <div class="gate">
+    <div class="q"><span class="step">2</span><span class="qt">Is the underlying data slow to compute or fetch?</span></div>
+    <div class="answers">
+      <div class="ans stop"><span class="lbl">No, it's a fast lookup</span><p>Skip it. Index the query or fix the N+1 first. A cache hides a problem you can just solve.</p></div>
+      <div class="ans next"><span class="lbl">If yes</span><span class="arw">Keep going &darr;</span></div>
+    </div>
+  </div>
+
+  <div class="gate">
+    <div class="q"><span class="step">3</span><span class="qt">Can you tolerate stale reads for a bounded window?</span></div>
+    <div class="answers">
+      <div class="ans stop"><span class="lbl">No, must be fresh</span><p>Cache is a trap here. Optimize the source, or precompute on write instead of on read.</p></div>
+      <div class="ans go"><span class="lbl">Yes</span><p><strong>Cache it.</strong> Start with a short TTL, measure the hit rate, and only add invalidation once a TTL alone clearly isn't enough.</p></div>
+    </div>
+  </div>
+
+  <h2>Pick the layer</h2>
+  <table>
+    <thead><tr><th>Layer</th><th>Good for</th><th>Cost when wrong</th></tr></thead>
+    <tbody>
+      <tr><td><code>HTTP / CDN</code></td><td>Public, identical responses</td><td>Serving stale to everyone</td></tr>
+      <tr><td><code>In-process</code></td><td>Tiny, per-node, hot config</td><td>Drift between nodes</td></tr>
+      <tr><td><code>Redis / shared</code></td><td>Cross-node, expensive compute</td><td>A new dependency to run</td></tr>
+      <tr><td><code>Precompute on write</code></td><td>Read-heavy, freshness matters</td><td>Heavier, more complex writes</td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

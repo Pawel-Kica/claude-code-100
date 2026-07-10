@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly ship report</title>
+<style>
+  :root{--bg:#F6F2EA;--ink:#1a1a1a;--muted:#6b6257;--accent:#C8553D;--line:#e3dcce;--card:#fffdf8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:56px 24px 80px}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:34px;margin:0 0 6px;letter-spacing:-.01em}
+  h2{font-family:Georgia,serif;font-weight:600;font-size:18px;margin:40px 0 14px}
+  .sub{color:var(--muted);margin:0 0 8px;font-size:17px}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+  .card .n{font-family:Georgia,serif;font-size:30px;line-height:1}
+  .card .k{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+  .card .d{font-size:13px;margin-top:6px}
+  .up{color:var(--accent)}.flat{color:var(--muted)}
+  .chart{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 18px}
+  .bar-row{display:grid;grid-template-columns:90px 1fr 44px;align-items:center;gap:12px;margin:9px 0;font-size:14px}
+  .track{background:#efe9db;border-radius:5px;height:14px;overflow:hidden}
+  .fill{height:100%;background:var(--accent);border-radius:5px}
+  .val{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  @media(max-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:380px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Weekly ship report</h1>
+  <p class="sub">Week of June 8. Numbers are mock, the layout is the point.</p>
+
+  <div class="cards">
+    <div class="card"><div class="n">6</div><div class="k">PRs merged</div><div class="d up">+2 vs last week</div></div>
+    <div class="card"><div class="n">2</div><div class="k">Public ships</div><div class="d up">+1</div></div>
+    <div class="card"><div class="n">94%</div><div class="k">CI green</div><div class="d flat">flat</div></div>
+    <div class="card"><div class="n">1.8h</div><div class="k">Median PR age</div><div class="d up">-40m</div></div>
+  </div>
+
+  <h2>Merges by day</h2>
+  <div class="chart">
+    <div class="bar-row"><span>Mon</span><span class="track"><span class="fill" style="width:33%"></span></span><span class="val">1</span></div>
+    <div class="bar-row"><span>Tue</span><span class="track"><span class="fill" style="width:67%"></span></span><span class="val">2</span></div>
+    <div class="bar-row"><span>Wed</span><span class="track"><span class="fill" style="width:0%"></span></span><span class="val">0</span></div>
+    <div class="bar-row"><span>Thu</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">3</span></div>
+    <div class="bar-row"><span>Fri</span><span class="track"><span class="fill" style="width:0%"></span></span><span class="val">0</span></div>
+  </div>
+</div>
+</body>
+</html>
