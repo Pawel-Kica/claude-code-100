@@ -32,7 +32,7 @@ Prompts you just copy and paste. Nothing to install.
 
 ## Skills
 
-**thinking**
+### thinking
 
 | | |
 |---|---|
@@ -42,14 +42,14 @@ Prompts you just copy and paste. Nothing to install.
 | [problem-first](skills/thinking/problem-first/SKILL.md) | Define the real problem before any solution. |
 | [inversion-thinking](skills/thinking/inversion-thinking/SKILL.md) | Munger: don't ask how to win, ask how you'd lose. |
 
-**engineering**
+### engineering
 
 | | |
 |---|---|
 | [afk-mode](skills/engineering/afk-mode/SKILL.md) | Takes the task end to end. No questions. Leaves a report. |
 | [html](skills/engineering/html/SKILL.md) | Renders an answer as a page and opens it. For things markdown ruins. |
 
-**productivity**
+### productivity
 
 | | |
 |---|---|
