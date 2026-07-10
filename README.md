@@ -35,7 +35,7 @@ Prompts you just copy and paste. Nothing to install.
 | [ask-first](prompts/ask-first.md) | Questions first, then a plan, then work. |
 | [grill-me-relentlessly](prompts/grill-me-relentlessly.md) | Same, for when you don't know where you'll land. |
 | [clean-the-codebase](prompts/clean-the-codebase.md) | Dead code and duplication, gone. Behavior unchanged. Runs alone. |
-| [make-it-human](prompts/make-it-human.md) | Cuts the padding out of anything it wrote. |
+| [make-it-human](prompts/make-it-human.md) | Removes agent slop. |
 | [read-only](prompts/read-only.md) | Answer the question. Change nothing. |
 
 ## Skills
