@@ -9,22 +9,13 @@ Paste this into Claude Code:
 ```
 Clone https://github.com/Pawel-Kica/claude-code-100.
 
-Then copy every skill folder in skills/*/*/ into ~/.claude/skills/, keeping its own name. The whole folder, not just the SKILL.md: html ships an examples/ it links to.
+Then copy every skill folder in skills/*/*/ into ~/.claude/skills/, keeping its own name. 
+The whole folder, not just the SKILL.md: html ships an examples/ it links to.
 
 If I already have a skill by that name, stop and ask before touching it.
 
 When you're done, list what you installed and tell me to reload.
 ```
-
-```bash
-git clone https://github.com/Pawel-Kica/claude-code-100.git
-cd claude-code-100
-
-mkdir -p ~/.claude/skills
-cp -r skills/*/* ~/.claude/skills/
-```
-
-Reload Claude Code and type `/`. The folders are for reading, not for loading: Claude Code sees skills flat, by name.
 
 Prompts you just copy and paste. Nothing to install.
 
@@ -33,8 +24,8 @@ Prompts you just copy and paste. Nothing to install.
 | | |
 |---|---|
 | [grill-me-plan](prompts/grill-me-plan.md) | Questions first, then a plan, then work. |
-| [grill-me-relentlessly](prompts/grill-me-relentlessly.md) | Same, for when you don't know where you'll land. |
-| [grill-me-one-question](prompts/grill-me-one-question.md) | Same, one question at a time. |
+| [grill-me-relentlessly](prompts/grill-me-relentlessly.md) | Grill when you don't know where you'll land. |
+| [grill-me-one-question](prompts/grill-me-one-question.md) | Grill one question at a time. |
 | [clean-the-codebase](prompts/clean-the-codebase.md) | Dead code and duplication, gone. Behavior unchanged. Runs alone. |
 | [make-it-human](prompts/make-it-human.md) | Removes agent slop. |
 | [read-only](prompts/read-only.md) | Answer the question. Change nothing. |
