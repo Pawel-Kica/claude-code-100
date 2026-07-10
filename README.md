@@ -58,18 +58,14 @@ Prompts you just copy and paste. Nothing to install.
 ## What works
 
 - Say what "done" looks like. Let it find the path.
-- Only the guardrails that matter. "Zero behavior change, don't commit" earns its place.
 - Say when to stop, or when to come back and ask.
 - Keep it short. Every word is context you pay for, every time.
-- Be clear about when to use it. A vague description means it never fires.
 
 ## What doesn't
 
 - Forty-step mega-prompts. It has read more code than you.
 - Guardrails for things that were never going to happen.
-- Polish. Long and polished loses to short and plain.
 - Styling instructions, tone notes, "please" and "thank you".
-- Leaving it to guess when it should have asked.
 
 ## Credit
 
