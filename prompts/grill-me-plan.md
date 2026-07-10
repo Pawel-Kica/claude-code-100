@@ -1,4 +1,4 @@
-# ask-first
+# grill-me-plan
 
 ```
 /grill-me if you have any questions, but don't ask stupid questions.

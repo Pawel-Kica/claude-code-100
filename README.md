@@ -32,8 +32,9 @@ Prompts you just copy and paste. Nothing to install.
 
 | | |
 |---|---|
-| [ask-first](prompts/ask-first.md) | Questions first, then a plan, then work. |
+| [grill-me-plan](prompts/grill-me-plan.md) | Questions first, then a plan, then work. |
 | [grill-me-relentlessly](prompts/grill-me-relentlessly.md) | Same, for when you don't know where you'll land. |
+| [grill-me-one-question](prompts/grill-me-one-question.md) | Same, one question at a time. |
 | [clean-the-codebase](prompts/clean-the-codebase.md) | Dead code and duplication, gone. Behavior unchanged. Runs alone. |
 | [make-it-human](prompts/make-it-human.md) | Removes agent slop. |
 | [read-only](prompts/read-only.md) | Answer the question. Change nothing. |
