@@ -1,7 +1,5 @@
 # clean-the-codebase
 
-Kills dead code and duplication without changing behavior. Runs on its own until there's nothing left to fix.
-
 ```
 Clean this codebase. AFK mode: never ask, never stop to confirm, make every call yourself and keep going until nothing's worth fixing.
 
