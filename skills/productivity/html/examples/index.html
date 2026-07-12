@@ -8,50 +8,98 @@
   :root{--bg:#F6F2EA;--ink:#1a1a1a;--muted:#6b6257;--accent:#C8553D;--line:#e3dcce;--card:#fffdf8;}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-  .wrap{max-width:760px;margin:0 auto;padding:64px 24px 90px}
+  .wrap{max-width:820px;margin:0 auto;padding:64px 24px 90px}
   h1{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:36px;margin:0 0 8px;letter-spacing:-.01em}
-  .sub{color:var(--muted);margin:0 0 36px;font-size:17px}
-  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:14px;transition:border-color .12s}
+  .sub{color:var(--muted);margin:0 0 40px;font-size:17px}
+  h2{font-family:Georgia,serif;font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:34px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;transition:border-color .12s}
   a.card:hover{border-color:var(--accent)}
-  .t{font-family:Georgia,serif;font-size:19px;font-weight:600;margin:0}
-  .k{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin:0 0 4px}
-  .d{color:var(--muted);font-size:14px;margin:4px 0 0}
-  footer{margin-top:36px;color:var(--muted);font-size:14px}
+  .t{font-family:Georgia,serif;font-size:17px;font-weight:600;margin:0}
+  .d{color:var(--muted);font-size:13px;margin:3px 0 0}
+  footer{margin-top:44px;color:var(--muted);font-size:14px}
   footer a{color:var(--accent)}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>html skill, examples</h1>
-  <p class="sub">What the <code>html</code> skill produces. Self-contained pages, no build, no dependencies. Crib the structure and the style.</p>
+  <p class="sub">What the <code>html</code> skill produces. Self-contained pages, no build, no dependencies. Crib the structure and the style. In <b>Unleashed</b> mode, mine this whole library and combine techniques for the subject.</p>
 
-  <a class="card" href="decision-tree.html">
-    <p class="k">Exploration / Planning</p>
-    <p class="t">Should you add a cache?</p>
-    <p class="d">A decision tree with branches and an option matrix.</p>
-  </a>
-  <a class="card" href="comparison.html">
-    <p class="k">Research / Design</p>
-    <p class="t">REST vs GraphQL vs gRPC</p>
-    <p class="d">A comparison table that ends in an actual verdict.</p>
-  </a>
-  <a class="card" href="code-review.html">
-    <p class="k">Code review</p>
-    <p class="t">Refund handler review</p>
-    <p class="d">An annotated diff with severity-tagged callouts.</p>
-  </a>
-  <a class="card" href="dashboard.html">
-    <p class="k">Reports</p>
-    <p class="t">Weekly ship report</p>
-    <p class="d">Stat cards and a hand-rolled CSS bar chart, no chart library.</p>
-  </a>
-  <a class="card" href="architecture-diagram.html">
-    <p class="k">Diagrams</p>
-    <p class="t">Request flow</p>
-    <p class="d">An architecture flow drawn in inline SVG.</p>
-  </a>
+  <h2>Exploration / Planning</h2>
+  <div class="grid">
+    <a class="card" href="decision-tree.html"><p class="t">Should you add a cache?</p><p class="d">Decision tree with branches, option matrix.</p></a>
+    <a class="card" href="exploration-code-approaches.html"><p class="t">Three approaches</p><p class="d">Debounced search, code paths side by side.</p></a>
+    <a class="card" href="exploration-visual-designs.html"><p class="t">Four visual directions</p><p class="d">Empty state explored four ways.</p></a>
+    <a class="card" href="design-directions.html"><p class="t">Four design directions</p><p class="d">Divergent looks before committing.</p></a>
+  </div>
 
-  <footer>Part of the User's <code>html</code> skill.</footer>
+  <h2>Research / Explainers</h2>
+  <div class="grid">
+    <a class="card" href="comparison.html"><p class="t">REST vs GraphQL vs gRPC</p><p class="d">Comparison table that ends in a verdict.</p></a>
+    <a class="card" href="research-concept-explainer.html"><p class="t">Consistent hashing</p><p class="d">Interactive concept explainer.</p></a>
+    <a class="card" href="research-feature-explainer.html"><p class="t">How rate limiting works</p><p class="d">Feature walkthrough with diagrams.</p></a>
+    <a class="card" href="code-understanding.html"><p class="t">Auth flow through the app</p><p class="d">Reading an unfamiliar codebase.</p></a>
+    <a class="card" href="reference-port.html"><p class="t">Point at a reference</p><p class="d">Port a look from an existing source.</p></a>
+    <a class="card" href="interview.html"><p class="t">The interview</p><p class="d">Structured Q and A to surface unknowns.</p></a>
+  </div>
+
+  <h2>Code review</h2>
+  <div class="grid">
+    <a class="card" href="code-review.html"><p class="t">Refund handler review</p><p class="d">Annotated diff, severity-tagged callouts.</p></a>
+    <a class="card" href="code-review-pr.html"><p class="t">PR #247 summary</p><p class="d">Full PR review writeup.</p></a>
+    <a class="card" href="pr-writeup.html"><p class="t">PR #312 writeup</p><p class="d">Moving delivery onto a queue, explained.</p></a>
+    <a class="card" href="blindspot-pass.html"><p class="t">Blindspot pass</p><p class="d">What the change might have missed.</p></a>
+    <a class="card" href="change-quiz.html"><p class="t">Quiz me before I merge</p><p class="d">Self-test the diff before shipping.</p></a>
+  </div>
+
+  <h2>Design / Prototyping</h2>
+  <div class="grid">
+    <a class="card" href="design-system.html"><p class="t">Design system reference</p><p class="d">Tokens, type, components on one page.</p></a>
+    <a class="card" href="component-variants.html"><p class="t">Card variant matrix</p><p class="d">Every state of one component.</p></a>
+    <a class="card" href="prototype-animation.html"><p class="t">Micro-interaction</p><p class="d">Task-completed animation prototype.</p></a>
+    <a class="card" href="prototype-interaction.html"><p class="t">Drag to reorder</p><p class="d">Interactive sidebar prototype.</p></a>
+    <a class="card" href="toolbar-mock.html"><p class="t">Mock before you wire</p><p class="d">Toolbar mockup, throwaway.</p></a>
+    <a class="card" href="color-grading-explainer.html"><p class="t">Color grading</p><p class="d">Teach a visual concept interactively.</p></a>
+  </div>
+
+  <h2>Diagrams / SVG</h2>
+  <div class="grid">
+    <a class="card" href="architecture-diagram.html"><p class="t">Request flow</p><p class="d">Architecture drawn in inline SVG.</p></a>
+    <a class="card" href="flowchart-diagram.html"><p class="t">Deploy pipeline</p><p class="d">Annotated flowchart.</p></a>
+    <a class="card" href="svg-illustrations.html"><p class="t">Header illustrations</p><p class="d">Hand-drawn SVG scenes.</p></a>
+  </div>
+
+  <h2>Decks</h2>
+  <div class="grid">
+    <a class="card" href="slide-deck.html"><p class="t">Weekly deck</p><p class="d">Slide-style sections.</p></a>
+    <a class="card" href="pitch-doc.html"><p class="t">The buy-in doc</p><p class="d">Pitch a change for sign-off.</p></a>
+  </div>
+
+  <h2>Reports</h2>
+  <div class="grid">
+    <a class="card" href="dashboard.html"><p class="t">Weekly ship report</p><p class="d">Stat cards, CSS bar chart, no library.</p></a>
+    <a class="card" href="status-report.html"><p class="t">Engineering status</p><p class="d">Weekly status snapshot.</p></a>
+    <a class="card" href="incident-report.html"><p class="t">Incident report</p><p class="d">Timeline of elevated 502s.</p></a>
+    <a class="card" href="churn-brainstorm.html"><p class="t">Brainstorm the fix</p><p class="d">Intervention ideas against churn.</p></a>
+  </div>
+
+  <h2>Plans</h2>
+  <div class="grid">
+    <a class="card" href="implementation-plan.html"><p class="t">Implementation plan</p><p class="d">Data flow, mockups, staged rollout.</p></a>
+    <a class="card" href="implementation-notes.html"><p class="t">Implementation notes</p><p class="d">Working notes as you build.</p></a>
+    <a class="card" href="tweakable-plan.html"><p class="t">The tweakable plan</p><p class="d">Plan with adjustable knobs.</p></a>
+  </div>
+
+  <h2>Custom editors</h2>
+  <div class="grid">
+    <a class="card" href="editor-triage-board.html"><p class="t">Triage board</p><p class="d">Sort and label a cycle of work.</p></a>
+    <a class="card" href="editor-feature-flags.html"><p class="t">Feature flags</p><p class="d">Edit a flags config by hand.</p></a>
+    <a class="card" href="editor-prompt-tuner.html"><p class="t">Prompt tuner</p><p class="d">Tune a support-reply prompt.</p></a>
+  </div>
+
+  <footer>Part of the User's <code>html</code> skill. Examples cloned from <a href="https://github.com/ThariqS/html-effectiveness">ThariqS/html-effectiveness</a>.</footer>
 </div>
 </body>
 </html>
