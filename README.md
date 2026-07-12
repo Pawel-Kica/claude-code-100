@@ -41,6 +41,7 @@ Prompts you just copy and paste. Nothing to install.
 | [second-opinion](skills/thinking/second-opinion/SKILL.md) | The strongest honest case against your plan. |
 | [problem-first](skills/thinking/problem-first/SKILL.md) | Define the real problem before any solution. |
 | [inversion-thinking](skills/thinking/inversion-thinking/SKILL.md) | Munger: don't ask how to win, ask how you'd lose. |
+| [asymmetric-leverage](skills/thinking/asymmetric-leverage/SKILL.md) | 80/20: the vital few inputs, and what to cut. |
 
 ### engineering
 
