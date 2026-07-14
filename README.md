@@ -70,6 +70,7 @@ The scope pipeline writes PRDs to `~/.claude/prds/`, never into your repo. `prd-
 | [html](skills/productivity/html/SKILL.md) | Renders an answer as a page and opens it. For things markdown ruins. |
 | [clipboard-copy](skills/productivity/clipboard-copy/SKILL.md) | Pulls one piece of the last reply to your clipboard. |
 | [past-conversations](skills/productivity/past-conversations/SKILL.md) | Search or resume past Claude Code chats by topic. |
+| [writing-assistant](skills/productivity/writing-assistant/SKILL.md) | Drafts and polishes prose in a warm human voice. Kills AI slop. |
 
 ## What works
 
