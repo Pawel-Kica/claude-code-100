@@ -35,7 +35,7 @@ In both sub-shapes the floating bottom bar is identical.
 
 ### 1. State the question and pick N
 
-Default to **3 variants**. More than 5 stops being radically different and starts being noise — cap there.
+Default to **5 variants**, range 3 to 7. More than 7 stops being radically different and starts being noise, cap there.
 
 Write down the plan in one line, in the prototype's location or a top-of-file comment:
 
