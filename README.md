@@ -28,7 +28,7 @@ Prompts you just copy and paste. Nothing to install.
 | [grill-me-one-question](prompts/grill-me-one-question.md) | Grill one question at a time. |
 | [grill-me-or-proceed](prompts/grill-me-or-proceed.md) | Questions if it has any, otherwise straight to work. |
 | [clean-the-codebase](prompts/clean-the-codebase.md) | Dead code and duplication refactor. |
-| [make-it-human](prompts/make-it-human.md) | Removes agent slop. |
+| [short-and-human](prompts/short-and-human.md) | Kills agent slop. Short and human, every reply. |
 | [read-only](prompts/read-only.md) | Answer the question, don't change anything. |
 
 ## Skills
