@@ -10,8 +10,8 @@ Fresh eyes on the diff before sloppy agent code piles up. This is a goal, not a 
 Review `git diff main...HEAD` plus working changes, or the path/PR the user names. 
 Read the surrounding code, not just the diff. Skip trivial or generated files and say why.
 
-Code is the source of truth. Never flag PRD files. 
-Glance at the matching one in `AI/prds/` for intent only, since PRDs drift after they're written. 
+Code is the source of truth. Never flag spec files. 
+Glance at the matching spec in `docs/specs/` for intent only, since specs drift after they're written. 
 
 ## Run
 

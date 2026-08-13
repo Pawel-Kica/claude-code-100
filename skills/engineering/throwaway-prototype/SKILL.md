@@ -9,5 +9,7 @@ Run `/prototype`'s UI branch with these overrides:
 - Mock all data in memory or localStorage.
 - Read the repo's colors, spacing, fonts, and components. Match them closely.
 
-Save to `~/.claude/prds/<name>/artifacts/<slug>.html` when scoping a PRD, otherwise `~/.claude/prototypes/<slug>.html`.
+Save to `~/.claude/specs/<name>/<slug>.html` when scoping a spec, otherwise `~/.claude/prototypes/<slug>.html`.
 Copy the path per `/clipboard-copy`.
+
+Open the prototype in Chrome ONCE, on first generation only. On later iterations/regenerations never open it again, user just refreshes the tab.

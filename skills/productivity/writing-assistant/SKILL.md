@@ -55,3 +55,7 @@ One slip is fine, a cluster is slop.
 ## Bar test
 
 Read it aloud. If you wouldn't say it to a friend, rewrite until you would.
+
+## After delivery
+
+Always copy the final text to clipboard via /clipboard-copy (pbcopy, raw text, no fences). Adapt formatting to the target medium (e.g. Slack bold = *single asterisks*). Confirm in one line.

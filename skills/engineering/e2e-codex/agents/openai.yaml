@@ -1,0 +1,4 @@
+interface:
+  display_name: "E2E Codex"
+  short_description: "Test real apps through Codex Browser"
+  default_prompt: "Use $e2e-codex to verify this change end to end."
