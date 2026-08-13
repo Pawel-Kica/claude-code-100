@@ -73,6 +73,10 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sp
 | [clipboard-copy](skills/productivity/clipboard-copy/SKILL.md) | Pulls one piece of the last reply to your clipboard. |
 | [past-conversations](skills/productivity/past-conversations/SKILL.md) | Search or resume past Claude Code chats by topic. |
 | [writing-assistant](skills/productivity/writing-assistant/SKILL.md) | Drafts and polishes prose in a warm human voice. Kills AI slop. |
+| [handoff](skills/productivity/handoff/SKILL.md) | Compacts the conversation into a doc a fresh agent can resume from. |
+| [handoff-implement](skills/productivity/handoff-implement/SKILL.md) | Finds a handoff from a loose description and just continues the work. |
+
+`handoff` writes to `~/.claude/handoffs/`, `handoff-implement` reads from it. Run `handoff` before you hit the context wall, not after.
 
 ## What works
 
@@ -88,7 +92,7 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sp
 
 ## Credit
 
-`grilling`, `grill-me` and `prototype` are Matt Pocock's, copied as-is from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock).
+`grilling`, `grill-me`, `prototype`, `to-spec` and `handoff` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me` and `prototype` are copied as-is; `to-spec` and `handoff` carry my own edits on top.
 
 ## License
 
