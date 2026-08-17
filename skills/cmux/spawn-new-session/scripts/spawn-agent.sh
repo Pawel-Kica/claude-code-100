@@ -36,7 +36,7 @@ done
 
 PROMPT="Read your brief at ${BRIEF} and execute it end to end. Follow its Done-when criteria. Work autonomously; only stop for input if genuinely blocked."
 [ -n "$PROMPT_OVERRIDE" ] && PROMPT="$PROMPT_OVERRIDE"
-CMD="cd ${CWD} && claude \"${PROMPT}\""
+CMD="cd $(printf '%q' "$CWD") && claude $(printf '%q' "$PROMPT")"
 
 if [ "$DRY" = 1 ]; then echo "DRYRUN $CMD"; exit 0; fi
 
@@ -74,6 +74,11 @@ done
 # agent forever. Auto-confirm only inside the user's own roots; otherwise hand it back.
 sleep 5
 SCREEN=$("$CMUX_BIN" read-screen --surface "$REF" --lines 40 2>/dev/null)
+if printf '%s' "$SCREEN" | grep -qiE 'no such file or directory|command not found'; then
+  echo "error: launch failed in $REF, shell said:" >&2
+  printf '%s\n' "$SCREEN" | grep -iE 'no such file or directory|command not found' >&2
+  exit 1
+fi
 if printf '%s' "$SCREEN" | grep -q "trust this folder"; then
   case "$CWD" in
     "$HOME"/Desktop*|"$HOME"/Work*|"$HOME"/claude-projects*|/tmp*|/private/tmp*)

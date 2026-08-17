@@ -10,7 +10,7 @@ Peer agents, not subagents: full Claude sessions in their own cmux tabs, each wi
 ## Run
 
 1. Write a brief per agent to `~/.claude/spawns/<YYYY-MM-DD-HHMM>-<slug>.md`. It is the whole handoff — the tab inherits nothing from this conversation.
-2. `~/.claude/skills/spawn-new-session/scripts/spawn-agent.sh --brief <path> --cwd <dir> --label <slug>`. `--focus true` for a single tab to land in, `--split` for a pane, `--prompt <text>` to override the default kickoff prompt. cmux only — exits 3 if the cmux socket is unreachable.
+2. `~/.claude/skills/spawn-new-session/scripts/spawn-agent.sh --brief <path> --cwd <dir> --label <slug>`. `--cwd` = current working dir unless the task clearly belongs elsewhere. Always spawn in background — never pass `--focus true`, even if the user says they will watch; they switch tabs themselves. `--split` for a pane, `--prompt <text>` to override the default kickoff prompt. cmux only — exits 3 if the cmux socket is unreachable.
 3. `cmux read-screen --surface <ref> --lines 30` — expect the Claude TUI.
 4. Report a table: Task | Tab | Brief. Then stop — the tabs own that work now.
 
