@@ -80,6 +80,19 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sp
 
 `handoff` writes to `~/.claude/handoffs/`, `handoff-implement` reads from it. Run `handoff` before you hit the context wall, not after.
 
+### cmux
+
+For the [cmux](https://cmux.com) terminal only — each skill drives real tabs over its control CLI.
+
+| | |
+|---|---|
+| [spawn-new-session](skills/cmux/spawn-new-session/SKILL.md) | Hands work to real Claude agents in their own tabs, brief per agent. |
+| [close-cmux-tab](skills/cmux/close-cmux-tab/SKILL.md) | Closes the tab the session is running in. One action, no questions. |
+| [replace-current-session](skills/cmux/replace-current-session/SKILL.md) | Handoff, fresh session in a new tab, closes itself. For when context runs deep. |
+
+`replace-current-session` chains `handoff` and `spawn-new-session` — install all three.
+
+
 ## What works
 
 - Say what "done" looks like. Let it find the path.
