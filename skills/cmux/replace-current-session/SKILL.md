@@ -17,5 +17,3 @@ Abort rule: any step fails → report it and keep this session alive. Never clos
      --prompt "Read the handoff at <handoff-path> and continue the work."
    ```
 3. **Verify, then die** — `cmux read-screen --surface <ref> --lines 30`, expect the Claude TUI. Then, as the final tool call of the turn, `cmux close-surface --surface "$CMUX_SURFACE_ID"`. Say goodbye before the close, not after — nothing after it survives.
-
-Depends on the `handoff` and `spawn-new-session` skills, both in this repo.

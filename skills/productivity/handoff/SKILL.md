@@ -4,7 +4,7 @@ description: Compact the current conversation into a handoff doc a fresh agent c
 argument-hint: "What will the next session focus on?"
 ---
 
-Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save it to `~/.claude/handoffs/` (the global `.claude`, not the workspace).
+Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.
 
 Include a "suggested skills" section in the document, which suggests skills that the agent should invoke.
 
@@ -14,4 +14,8 @@ Redact any sensitive information, such as API keys, passwords, or personally ide
 
 If the user passed arguments, treat them as a description of what the next session will focus on and tailor the doc accordingly.
 
-After saving, copy the path to the clipboard (`printf '%s' <path> | pbcopy` on macOS), then confirm the path.
+### Internal Instructions
+
+Save to `~/.claude/handoffs/` (the global `.claude`, not the workspace).
+
+The user's args are the next session's focus. After saving, copy the path to the clipboard (`printf '%s' <path> | pbcopy` on macOS), then confirm the path.

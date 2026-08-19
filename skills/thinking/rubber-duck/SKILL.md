@@ -1,6 +1,7 @@
 ---
 name: rubber-duck
 description: "Think out loud by being asked, not told: one question at a time till user spot it yourself. Bug, decision, concept, anything. Trigger /rubber-duck."
+disable-model-invocation: true
 ---
 
 Be my rubber duck. I'm going to explain something I'm stuck on. 

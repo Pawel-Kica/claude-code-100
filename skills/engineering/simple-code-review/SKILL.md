@@ -15,7 +15,6 @@ Glance at the matching spec in `docs/specs/` for intent only, since specs drift 
 
 ## Run
 
-Lead on Opus, reviewers on Sonnet.
 Spawn one to three reviewers in parallel, however many the diff warrants.
 Each holds the code to repo conventions (the changed dir's `CLAUDE.md` plus always-on rules) and hunts for:
 

@@ -10,7 +10,7 @@ Paste this into Claude Code:
 Clone https://github.com/Pawel-Kica/claude-code-100.
 
 Then copy every skill folder in skills/*/*/ into ~/.claude/skills/, keeping its own name. 
-The whole folder, not just the SKILL.md: html ships an examples/ it links to, the e2e skills ship report templates.
+The whole folder, not just the SKILL.md: html ships an examples/ it links to, tdd ships reference files, the e2e skills ship report templates.
 
 If I already have a skill by that name, stop and ask before touching it.
 
@@ -54,6 +54,8 @@ Prompts you just copy and paste. Nothing to install.
 | [scope](skills/engineering/scope/SKILL.md) | Fuzzy idea into an implement-ready spec. Research, grill, prototype, write. |
 | [research](skills/engineering/research/SKILL.md) | Web, codebase, past sessions. Light to ultra depth. |
 | [to-spec](skills/engineering/to-spec/SKILL.md) | Writes the decided context into a spec. |
+| [tdd](skills/engineering/tdd/SKILL.md) | Red-green loop, and what makes a test worth keeping. Seams, anti-patterns, rules. |
+| [spec-review](skills/engineering/spec-review/SKILL.md) | Two agents review the finished spec. Fixes blockers, asks the open decisions. |
 | [spec-implement](skills/engineering/spec-implement/SKILL.md) | Builds the spec. E2E verify, review, recap. Never commits. |
 | [e2e](skills/engineering/e2e/SKILL.md) | Drives the real app until the change provably works. Fixes what breaks. |
 | [e2e-codex](skills/engineering/e2e-codex/SKILL.md) | Same, for Codex Desktop Browser. Ships a report builder. |
@@ -64,7 +66,7 @@ Prompts you just copy and paste. Nothing to install.
 | [ponytail-review](skills/engineering/ponytail-review/SKILL.md) | Over-engineering only. What to delete, what stdlib already does. |
 | [super-code-review](skills/engineering/super-code-review/SKILL.md) | Runs the three reviewers in parallel, merges into one HTML verdict. |
 
-The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `spec-implement` copies the one you name into `docs/specs/` and builds it.
+The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `scope` chains the whole thing: research, grill, optionally `tdd`, `to-spec`, then `spec-review`. `spec-implement` copies the one you name into `docs/specs/` and builds it.
 
 ### productivity
 
@@ -107,7 +109,7 @@ For the [cmux](https://cmux.com) terminal only — each skill drives real tabs o
 
 ## Credit
 
-`grilling`, `grill-me`, `prototype`, `to-spec` and `handoff` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me` and `prototype` are copied as-is; `to-spec` and `handoff` carry my own edits on top.
+`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec` and `handoff` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me`, `prototype` and `tdd` are copied as-is; `to-spec` and `handoff` carry my own edits on top.
 
 ## License
 
