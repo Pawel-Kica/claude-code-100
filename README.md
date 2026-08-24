@@ -55,16 +55,17 @@ Prompts you just copy and paste. Nothing to install.
 | [research](skills/engineering/research/SKILL.md) | Web, codebase, past sessions. Light to ultra depth. |
 | [to-spec](skills/engineering/to-spec/SKILL.md) | Writes the decided context into a spec. |
 | [tdd](skills/engineering/tdd/SKILL.md) | Red-green loop, and what makes a test worth keeping. Seams, anti-patterns, rules. |
-| [spec-review](skills/engineering/spec-review/SKILL.md) | Two agents review the finished spec. Fixes blockers, asks the open decisions. |
+| [spec-review](skills/engineering/spec-review/SKILL.md) | Three agents review the finished spec. Fixes blockers, asks the open decisions. |
 | [spec-implement](skills/engineering/spec-implement/SKILL.md) | Builds the spec. E2E verify, review, recap. Never commits. |
 | [e2e](skills/engineering/e2e/SKILL.md) | Drives the real app until the change provably works. Fixes what breaks. |
 | [e2e-codex](skills/engineering/e2e-codex/SKILL.md) | Same, for Codex Desktop Browser. Ships a report builder. |
 | [prototype](skills/engineering/prototype/SKILL.md) | Throwaway code that answers a design question. |
 | [throwaway-prototype](skills/engineering/throwaway-prototype/SKILL.md) | One standalone HTML page, variants on a query param. |
-| [simple-code-review](skills/engineering/simple-code-review/SKILL.md) | Fresh eyes on the diff after you implement. |
+| [html-planning](skills/engineering/html-planning/SKILL.md) | Grilling, but the interview lives on an HTML page instead of the terminal. |
+| [matt-code-review](skills/engineering/matt-code-review/SKILL.md) | Two-axis diff review: repo standards, and faithfulness to the spec. |
 | [thermo-nuclear-code-quality-review](skills/engineering/thermo-nuclear-code-quality-review/SKILL.md) | Harsh audit: abstractions, file size, spaghetti. |
 | [ponytail-review](skills/engineering/ponytail-review/SKILL.md) | Over-engineering only. What to delete, what stdlib already does. |
-| [super-code-review](skills/engineering/super-code-review/SKILL.md) | Runs the three reviewers in parallel, merges into one HTML verdict. |
+| [super-code-review](skills/engineering/super-code-review/SKILL.md) | Runs the three reviewers in parallel, merges, then fixes. |
 
 The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `scope` chains the whole thing: research, grill, optionally `tdd`, `to-spec`, then `spec-review`. `spec-implement` copies the one you name into `docs/specs/` and builds it.
 
@@ -109,7 +110,7 @@ For the [cmux](https://cmux.com) terminal only — each skill drives real tabs o
 
 ## Credit
 
-`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec` and `handoff` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me`, `prototype` and `tdd` are copied as-is; `to-spec` and `handoff` carry my own edits on top.
+`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `handoff` and `matt-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me`, `prototype` and `tdd` are copied as-is; `to-spec`, `handoff` and `matt-code-review` carry my own edits on top (`matt-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`).
 
 ## License
 

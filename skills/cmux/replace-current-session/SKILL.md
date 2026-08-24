@@ -1,8 +1,7 @@
 ---
 name: replace-current-session
-description: "Hand off to a fresh Claude session in a new cmux tab, then close this one"
+description: "Hand off to a fresh Claude session in a new cmux tab, close this one."
 argument-hint: "[what the successor should focus on]"
-disable-model-invocation: true
 ---
 
 Swap this session for a fresh one. Deterministic: the same three steps every run, no branching on what the conversation produced.

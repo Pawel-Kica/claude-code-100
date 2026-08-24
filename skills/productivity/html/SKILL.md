@@ -1,6 +1,6 @@
 ---
 name: html
-description: Render a non-trivial answer as a self-contained HTML page and open it in the browser.
+description: "Render an answer as a self-contained HTML page and open it."
 ---
 
 A single `.html` in the browser beats a wall of markdown. (After Thariq Shihipar's html-effectiveness.)
@@ -31,7 +31,9 @@ Self-contained `.html`, inline CSS/JS, no build. CDN libs only when earned (Char
 
 ## Style
 
-Minimal: cream `#F6F2EA`, near-black text, serif headlines, sans body, accent `#C8553D` sparingly, max-width 720-900px. No shadows, gradients, emoji. "Make it pop" → go bolder.
+Minimal: cream `#F6F2EA`, near-black text, accent `#C8553D` sparingly, max-width 720-900px. No shadows, gradients, emoji. "Make it pop" → go bolder.
+
+System sans everywhere, `-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif`, with `-webkit-font-smoothing:antialiased`. Headlines are the same face, weight 650, `letter-spacing:-.02em`. Mono (`ui-monospace,Menlo,monospace`) only for small-caps labels: section headers, IDs, badges, status words. No serif, no webfonts.
 
 Stuck? Crib from [`examples/`](examples/).
 

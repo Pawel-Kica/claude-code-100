@@ -1,0 +1,6 @@
+interface:
+  display_name: "Asymmetric Leverage"
+  short_description: "Find the vital few inputs that drive the result"
+  default_prompt: "Use $asymmetric-leverage."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Monkey First"
+  short_description: "Find the riskiest part that decides if a project deserves to exist"
+  default_prompt: "Use $monkey-first."
+policy:
+  allow_implicit_invocation: false

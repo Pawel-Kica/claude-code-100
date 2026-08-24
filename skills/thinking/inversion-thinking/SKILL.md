@@ -1,6 +1,6 @@
 ---
 name: inversion-thinking
-description: "Use Charlie Munger inversion thinking process to tackle a problem. Trigger /inversion-thinking, 'invert it', 'inversion'."
+description: "Munger inversion: solve it by asking how it fails. Trigger 'invert it', 'inversion'."
 ---
 
 Use Charlie Munger inversion thinking process to tackle a problem or help user to make a decision.

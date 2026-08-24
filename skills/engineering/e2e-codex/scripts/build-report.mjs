@@ -26,14 +26,27 @@ for (const key of required) {
 if (!Array.isArray(manifest.steps) || manifest.steps.length === 0) {
   throw new Error("Manifest steps must contain at least one item");
 }
-if (!["record", "screenshots"].includes(manifest.mode)) {
-  throw new Error('Manifest mode must be "record" or "screenshots"');
+// The three artifact modes. "default" produces no report, so it never reaches this helper.
+const ARTIFACT_MODES = ["screenshots", "record", "frame_locked"];
+const isVideoMode = mode => mode === "record" || mode === "frame_locked";
+
+if (!ARTIFACT_MODES.includes(manifest.mode)) {
+  throw new Error(`Manifest mode must be one of ${ARTIFACT_MODES.map(m => `"${m}"`).join(", ")}`);
 }
-if (manifest.mode === "record" && !manifest.frames_dir) {
-  throw new Error("Record mode requires frames_dir and captured Browser frames");
+if (isVideoMode(manifest.mode) && !manifest.frames_dir) {
+  throw new Error(`${manifest.mode} mode requires frames_dir and captured frames`);
 }
-if (manifest.expected_duration_seconds !== undefined && manifest.mode !== "record") {
-  throw new Error("expected_duration_seconds requires record mode");
+if (manifest.mode === "frame_locked") {
+  if (manifest.expected_duration_seconds === undefined) {
+    throw new Error("frame_locked mode requires expected_duration_seconds");
+  }
+  for (const key of ["capture_fps", "output_fps"]) {
+    if (Number(manifest[key]) !== 60) {
+      throw new Error(`frame_locked mode requires ${key} to be 60, one fresh frame per output frame`);
+    }
+  }
+} else if (manifest.expected_duration_seconds !== undefined) {
+  throw new Error("expected_duration_seconds requires frame_locked mode");
 }
 if (manifest.expected_duration_seconds !== undefined && !(Number(manifest.expected_duration_seconds) > 0)) {
   throw new Error("expected_duration_seconds must be greater than zero");
@@ -106,8 +119,8 @@ if (manifest.frames_dir) {
 } else if (manifest.video_file) {
   videoPath = resolveRun(manifest.video_file);
 }
-if (manifest.mode === "record" && !videoPath) {
-  throw new Error("Record mode requires a validated video");
+if (isVideoMode(manifest.mode) && !videoPath) {
+  throw new Error(`${manifest.mode} mode requires a validated video`);
 }
 
 const thumbsDir = path.join(runDir, ".e2e-codex-thumbs");
@@ -148,8 +161,8 @@ const html = (await fs.readFile(templatePath, "utf8"))
 if (/__(TITLE|SUB|VERDICT|DATA|VIDEO)__/.test(html)) {
   throw new Error("Report template still contains unresolved placeholders");
 }
-if (manifest.mode === "record" && !html.includes("data:video/mp4;base64,")) {
-  throw new Error("Record mode report is missing embedded MP4 data");
+if (isVideoMode(manifest.mode) && !html.includes("data:video/mp4;base64,")) {
+  throw new Error(`${manifest.mode} mode report is missing embedded MP4 data`);
 }
 
 const outputPath = resolveRun(manifest.output);

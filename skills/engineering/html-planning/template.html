@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan</title>
+<style>
+  :root{color-scheme:light;--cream:#F6F2EA;--ink:#26211B;--soft:#5c5348;--rust:#BD5638;--line:#ddd4c6;--panel:#f1ebe0;--card:#fff;--wf:#c9bfae;--lock:#a99e8d;--scrim:rgba(38,33,27,.45)}
+  html[data-theme="dark"]{color-scheme:dark;--cream:#1A1714;--ink:#EDE6DA;--soft:#9c9284;--rust:#E07A55;--line:#39332c;--panel:#231f1a;--card:#221E19;--wf:#4a423a;--lock:#6b6157;--scrim:rgba(0,0,0,.6)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 22px 160px}
+  .top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+  h1{font-size:1.9rem;font-weight:650;letter-spacing:-.02em;margin:0 0 6px}
+  .sub{color:var(--soft);font-size:.96rem}
+  .round{font-family:ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--rust);letter-spacing:.14em;text-transform:uppercase}
+  .pill{flex:0 0 auto;font-family:ui-monospace,Menlo,monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);background:var(--card);color:var(--soft);border-radius:999px;padding:8px 14px;cursor:pointer}
+  .pill:hover{border-color:var(--rust);color:var(--rust)}
+  h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.2em;color:var(--rust);margin:40px 0 14px;font-family:ui-monospace,Menlo,monospace;font-weight:700}
+  .wf-ink{fill:var(--ink)}.wf-soft{fill:var(--wf)}.wf-rust{fill:var(--rust)}
+  .q{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:18px 20px;margin-bottom:14px;transition:opacity .18s}
+  .q.answered{border-color:var(--rust);box-shadow:0 0 0 1px rgba(189,86,56,.25)}
+  .q.locked{background:transparent;border-style:dashed;padding:13px 20px}
+  .q.locked .body{display:none}
+  .qh{display:flex;gap:10px;align-items:baseline}
+  .qid{font-family:ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--rust);padding-top:3px}
+  .qt{font-size:1.02rem;font-weight:600;letter-spacing:-.01em}
+  .q.locked .qt{font-weight:400;color:var(--lock)}
+  .q.locked .qid{color:var(--lock)}
+  .lock{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lock);flex:0 0 auto}
+  .q:not(.locked) .lock{display:none}
+  .qn{color:var(--soft);font-size:.88rem;margin:2px 0 12px}
+  label.opt{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:9px;cursor:pointer;font-size:.95rem}
+  label.opt:hover{background:var(--panel)}
+  label.opt input{margin-top:5px;accent-color:var(--rust);flex:0 0 auto}
+  .rec{font-family:ui-monospace,Menlo,monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--rust);border-radius:999px;padding:3px 9px;margin-left:9px;vertical-align:2px;white-space:nowrap}
+  label.opt.is-rec{background:rgba(189,86,56,.08);box-shadow:inset 2px 0 0 var(--rust)}
+  label.opt.is-rec:hover{background:rgba(189,86,56,.13)}
+  .card.is-rec{background:rgba(189,86,56,.06);border-color:rgba(189,86,56,.45)}
+  textarea{width:100%;margin-top:10px;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-family:inherit;font-size:.95rem;background:var(--panel);color:var(--ink);resize:vertical;min-height:44px}
+  textarea:focus{outline:2px solid var(--rust);outline-offset:1px}
+  .skip{margin-top:10px;font-family:ui-monospace,Menlo,monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);background:none;border:none;padding:0;cursor:pointer}
+  .skip:hover{color:var(--rust)}
+  .q.skipped .qt{color:var(--soft)}
+  .bar{position:fixed;left:0;right:0;bottom:0;background:color-mix(in srgb,var(--cream) 96%,transparent);border-top:1px solid var(--line);padding:14px 22px;display:flex;gap:14px;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+  button.act{font-family:inherit;font-size:1rem;padding:12px 26px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--cream);cursor:pointer}
+  button.ghost{background:transparent;color:var(--ink)}
+  button.act:hover{opacity:.88}
+  .count{color:var(--soft);font-size:.9rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:10px 0 4px}
+  .card{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:12px;cursor:pointer}
+  .card:hover{border-color:var(--rust)}
+  .card.sel{border-color:var(--rust);box-shadow:0 0 0 1px rgba(189,86,56,.25)}
+  .card .cl{font-size:.9rem;font-weight:600;margin-top:8px}
+  .card .cd{font-size:.82rem;color:var(--soft);margin-top:2px}
+  .scrim{position:fixed;inset:0;background:var(--scrim);display:none;align-items:flex-start;justify-content:center;padding:60px 20px;overflow:auto;z-index:9}
+  .scrim.on{display:flex}
+  .modal{background:var(--cream);border:1px solid var(--line);border-radius:16px;max-width:760px;width:100%;padding:26px 28px}
+  .modal h3{margin:0 0 2px;font-size:1.25rem;font-weight:650;letter-spacing:-.01em}
+  .modal .mx{float:right;cursor:pointer;color:var(--soft);font-family:ui-monospace,Menlo,monospace;font-size:.8rem}
+  .dec{border-left:2px solid var(--rust);padding:2px 0 2px 12px;margin:12px 0;font-size:.95rem}
+  .dec b{display:block;font-size:.8rem;color:var(--soft);font-weight:400;font-family:ui-monospace,Menlo,monospace}
+  details{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+  summary{cursor:pointer;font-family:ui-monospace,Menlo,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+  .hist{font-size:.9rem;color:var(--soft);margin:10px 0 0}
+  .hist b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="round" id="roundline"></div>
+      <h1 id="title"></h1>
+      <div class="sub">One at a time. Answer or skip to unlock the next. Free text always beats the option you picked.</div>
+    </div>
+    <div style="display:flex;gap:8px;flex:0 0 auto">
+      <button class="pill" id="theme" title="light / dark">light</button>
+      <button class="pill" id="pill">Already decided (0)</button>
+    </div>
+  </div>
+  <div id="form"></div>
+</div>
+
+<div class="bar">
+  <span class="count" id="count">0 answered</span>
+  <button class="act" id="copy">Copy Answers</button>
+  <button class="act ghost" id="reset">Reset</button>
+</div>
+
+<div class="scrim" id="scrim">
+  <div class="modal">
+    <span class="mx" id="mx">close</span>
+    <h3>Already decided</h3>
+    <p class="sub">Settled in earlier rounds. Reference only, nothing to do here.</p>
+    <div id="decided"></div>
+    <div id="history"></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   The agent edits ONLY the four consts below. Everything under
+   "machinery" stays as it is, so every round renders the same.
+
+   TOPIC    what is being planned, and which round this is
+   DECIDED  settled decisions, the running state of the plan
+   HISTORY  every past round, question and answer, verbatim
+   Q        this round's frontier
+
+   DECIDED + HISTORY are the source of truth on resume: read this
+   file before asking anything, rebuild the tree from them.
+   ============================================================ */
+
+const TOPIC = {title:"PLAN_TITLE", round:1};
+
+const DECIDED = [
+  // {tag:"scope", text:"What was settled, in one line."},
+];
+
+const HISTORY = [
+  // {round:0, items:[{id:"X1", q:"Question asked", a:"B. The option they picked / note: free text"}]},
+];
+
+const Q = [
+  // {s:"Section heading"},
+  //
+  // plain options, one recommended:
+  // {id:"A1", t:"Question title", n:"Optional note under the title", o:[
+  //   {t:"Option text", rec:true},
+  //   "Option text"]},
+  //
+  // pick many:
+  // {id:"A2", t:"Tick every one that applies", multi:true, o:["One","Two"]},
+  //
+  // free text only:
+  // {id:"A3", t:"Paste the URL", free:true},
+  //
+  // options that differ in shape, rendered as wireframe cards
+  // (wf: scroll | cards | editorial | dark):
+  // {id:"A4", t:"Which layout?", cards:true, o:[
+  //   {t:"One long scroll", d:"one line of detail", wf:"scroll"},
+  //   {t:"Editorial", d:"one line of detail", wf:"editorial", rec:true}]},
+];
+
+/* ===================== machinery ===================== */
+
+const wf = (mode) => {
+  const bar=(x,y,w,h,c)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="2" class="wf-${c}"/>`;
+  const shapes={
+    scroll: bar(10,8,90,10,'ink')+bar(10,24,120,6,'soft')+bar(10,34,110,6,'soft')+bar(10,48,44,12,'rust')+bar(10,72,150,28,'soft')+bar(10,106,150,28,'soft'),
+    cards: bar(10,8,90,10,'ink')+bar(10,26,150,6,'soft')+bar(10,44,70,44,'soft')+bar(90,44,70,44,'soft')+bar(10,94,70,44,'soft')+bar(90,94,44,12,'rust'),
+    editorial: bar(10,8,150,18,'ink')+bar(10,32,60,100,'soft')+bar(78,32,82,6,'soft')+bar(78,44,82,6,'soft')+bar(78,56,60,6,'soft')+bar(78,72,44,12,'rust'),
+    dark: `<rect x="0" y="0" width="170" height="145" rx="6" fill="#26211B"/><rect x="10" y="14" width="100" height="12" rx="2" fill="#F6F2EA"/><rect x="10" y="34" width="130" height="6" rx="2" fill="#7a7166"/><rect x="10" y="44" width="110" height="6" rx="2" fill="#7a7166"/><rect x="10" y="60" width="44" height="12" rx="2" fill="#BD5638"/><rect x="10" y="86" width="150" height="44" rx="2" fill="#3a332b"/>`
+  };
+  return `<svg viewBox="0 0 170 145" width="100%" height="120" role="img">${shapes[mode]}</svg>`;
+};
+
+const form=document.getElementById('form');
+const L=i=>String.fromCharCode(65+i);
+const qs=Q.filter(q=>!q.s);
+const skipped=new Set();
+
+document.title=TOPIC.title;
+document.getElementById('title').textContent=TOPIC.title;
+document.getElementById('roundline').textContent=`Round ${TOPIC.round} · ${qs.length} open`;
+document.getElementById('pill').textContent=`Already decided (${DECIDED.length})`;
+document.getElementById('decided').innerHTML=DECIDED.map(d=>`<div class="dec"><b>${d.tag||''}</b>${d.text}</div>`).join('')
+  || `<p class="hist">Nothing settled yet.</p>`;
+document.getElementById('history').innerHTML=HISTORY.map(h=>`<details><summary>Round ${h.round}, answered</summary>${
+  h.items.map(i=>`<p class="hist"><b>${i.id} ${i.q}</b><br>${i.a}</p>`).join('')}</details>`).join('');
+
+Q.forEach(q=>{
+  if(q.s){const h=document.createElement('h2');h.textContent=q.s;form.appendChild(h);return;}
+  const d=document.createElement('div');d.className='q';d.dataset.id=q.id;
+  const head=`<div class="qh"><span class="qid">${q.id}</span><span class="qt">${q.t}</span><span class="lock">locked</span></div>`;
+  let body='';
+  if(q.n)body+=`<div class="qn">${q.n}</div>`;
+  if(q.o && q.cards){
+    body+=`<div class="grid">`+q.o.map((o,i)=>`
+      <label class="card${o.rec?' is-rec':''}"><input type="radio" name="${q.id}" value="${L(i)}" hidden>
+        ${wf(o.wf)}
+        <div class="cl">${L(i)}. ${o.t}${o.rec?'<span class="rec">recommended</span>':''}</div>
+        <div class="cd">${o.d||''}</div></label>`).join('')+`</div>`;
+  } else if(q.o){
+    body+=q.o.map((o,i)=>{
+      const t=typeof o==='string'?o:o.t, rec=o.rec?'<span class="rec">recommended</span>':'';
+      return `<label class="opt${o.rec?' is-rec':''}"><input type="${q.multi?'checkbox':'radio'}" name="${q.id}" value="${L(i)}"><span><b>${L(i)}.</b> ${t}${rec}</span></label>`;
+    }).join('');
+  }
+  body+=`<textarea placeholder="${q.o?'or type your own / add context':'type your answer'}"></textarea>`;
+  body+=`<br><button class="skip" data-skip="${q.id}">skip this one</button>`;
+  d.innerHTML=head+`<div class="body">${body}</div>`;
+  form.appendChild(d);
+});
+
+// answers survive a refresh, keyed per file
+const KEY='plan:'+location.pathname.split('/').pop();
+const save=()=>{
+  const data={skipped:[...skipped],q:{}};
+  qs.forEach(q=>{
+    const el=form.querySelector(`[data-id="${q.id}"]`);
+    data.q[q.id]={picked:[...el.querySelectorAll('input:checked')].map(i=>i.value),txt:el.querySelector('textarea').value};
+  });
+  localStorage.setItem(KEY,JSON.stringify(data));
+};
+const restore=()=>{
+  let data; try{data=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+  if(!data)return;
+  (data.skipped||[]).forEach(id=>skipped.add(id));
+  qs.forEach(q=>{
+    const st=(data.q||{})[q.id]; if(!st)return;
+    const el=form.querySelector(`[data-id="${q.id}"]`);
+    (st.picked||[]).forEach(v=>{const i=el.querySelector(`input[value="${v}"]`); if(i)i.checked=true;});
+    if(st.txt)el.querySelector('textarea').value=st.txt;
+  });
+};
+
+const answers=()=>qs.map(q=>{
+  const el=form.querySelector(`[data-id="${q.id}"]`);
+  const picked=[...el.querySelectorAll('input:checked')].map(i=>{
+    const o=q.o[i.value.charCodeAt(0)-65];
+    return `${i.value}. ${typeof o==='string'?o:o.t}`;
+  });
+  const txt=el.querySelector('textarea').value.trim();
+  return {q,el,picked,txt,done:picked.length>0||txt.length>0};
+});
+
+// a question unlocks once every question above it is answered or skipped
+const refresh=()=>{
+  const a=answers();
+  let open=true;
+  a.forEach(({q,el,done})=>{
+    const locked=!open;
+    el.classList.toggle('locked',locked);
+    el.classList.toggle('answered',done);
+    el.classList.toggle('skipped',skipped.has(q.id));
+    el.querySelectorAll('input,textarea').forEach(i=>i.disabled=locked);
+    el.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel',c.querySelector('input').checked));
+    if(!done && !skipped.has(q.id)) open=false;
+  });
+  document.getElementById('count').textContent=`${a.filter(x=>x.done).length} of ${qs.length} answered`;
+  save();
+};
+
+form.addEventListener('input',refresh);
+form.addEventListener('change',refresh);
+form.addEventListener('click',e=>{
+  const b=e.target.closest('.skip'); if(!b)return;
+  e.preventDefault(); skipped.add(b.dataset.skip); refresh();
+});
+
+document.getElementById('copy').onclick=async()=>{
+  const a=answers().filter(x=>x.done);
+  if(!a.length){alert('Nothing answered yet.');return;}
+  const out=[`# Answers - ${TOPIC.title}, round ${TOPIC.round}`,'',...a.flatMap(({q,picked,txt})=>{
+    const lines=[`**${q.id} - ${q.t}**`];
+    picked.forEach(p=>lines.push(`- ${p}`));
+    if(txt)lines.push(`- note: ${txt}`);
+    lines.push('');return lines;
+  }),...(skipped.size?[`skipped: ${[...skipped].join(', ')}`]:[])].join('\n');
+  try{await navigator.clipboard.writeText(out);}
+  catch(e){const t=document.createElement('textarea');t.value=out;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();}
+  const b=document.getElementById('copy');b.textContent=`Copied ${a.length} answers`;
+  setTimeout(()=>b.textContent='Copy Answers',1800);
+};
+document.getElementById('reset').onclick=()=>{
+  if(!confirm('Clear every answer on this page?'))return;
+  form.querySelectorAll('input').forEach(i=>i.checked=false);
+  form.querySelectorAll('textarea').forEach(t=>t.value='');
+  skipped.clear();localStorage.removeItem(KEY);refresh();
+};
+
+const root=document.documentElement, tbtn=document.getElementById('theme');
+const setTheme=t=>{root.dataset.theme=t;tbtn.textContent=t;localStorage.setItem('plan-theme',t)};
+setTheme(localStorage.getItem('plan-theme')||'light');
+tbtn.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+
+restore();
+
+const scrim=document.getElementById('scrim');
+document.getElementById('pill').onclick=()=>scrim.classList.add('on');
+document.getElementById('mx').onclick=()=>scrim.classList.remove('on');
+scrim.onclick=e=>{if(e.target===scrim)scrim.classList.remove('on')};
+refresh();
+</script>
+</body>
+</html>

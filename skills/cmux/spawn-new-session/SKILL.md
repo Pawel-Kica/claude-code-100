@@ -1,8 +1,7 @@
 ---
 name: spawn-new-session
-description: "Hand work to real Claude agents running in their own cmux tabs"
+description: "Hand work to Claude agents in their own cmux tabs."
 argument-hint: "[task, or several tasks to split across agents]"
-disable-model-invocation: true
 ---
 
 Peer agents, not subagents: full Claude sessions in their own cmux tabs, each with its own context and permissions, user watching.

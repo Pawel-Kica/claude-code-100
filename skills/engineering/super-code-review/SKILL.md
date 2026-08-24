@@ -1,42 +1,41 @@
 ---
 name: super-code-review
-description: "Super code review, run multiple code-review skills in parallel. Trigger /super-code-review, 'super review'."
+description: "Run several code-review skills in parallel, then fix. Trigger 'super review'."
 ---
 
-Super code review - run 3 code-review skills in parallel using subagents, then merge into one verdict.
+Super code review - run 3 code-review skills in parallel using subagents, merge into one verdict, then fix.
 
-## Modes
+Running it means fixing. Review, merge, apply.
 
-**check** (default) - report only, change nothing. Output is a visually easy to review `/html` report, saved in `/tmp`, never in the repo.
-
-**fix** - apply the findings. Triggered by intent, not a keyword: "fix it", "implement", "and fix the bugs" all mean fix. No confirmation gate, the ask is the go.
+Ask for report-only ("just review", "don't fix") and it stops after the merge and hands you an `/html` report in `/tmp`, never in the repo.
 
 ## Run
 
 1. Scope: current diff, staged and unstaged changes. Other possible scopes: PR, specific changeset.
 
-2. Launch all three agents in a single message (parallel). Each agent: invoke its skill on that scope, return findings as structured list (file:line, severity, claim, fix).
+2. Launch all three agents in a single message (parallel). Each agent: invoke its skill on that scope, return findings as a structured list (file:line, severity, claim, fix).
 
 3. Merge. Dedupe overlapping findings across lenses, keep the sharpest wording. Group by severity, not by reviewer.
 
-4. In fix mode only: apply the merged findings yourself, after step 3.
+4. Apply the merged findings yourself.
 
 ## Reviewers
 
-Three read-only diff-reviewers, one agent each. Read-only in every mode, including fix mode - three agents editing the same diff in parallel clobber each other. The lead does the fixing.
+Three diff-reviewers, one agent each. **All three are report-only** - three agents editing the same diff in parallel clobber each other. The lead does every edit.
 
-- `simple-code-review` (check mode): obvious bugs and simple verdict
-- `thermo-nuclear-code-quality-review`: quality, abstractions, size, and spaghetti
+- `matt-code-review`: standards conformance and spec faithfulness
 - `ponytail-review`: over-engineering and reinvented stdlib
+- `thermo-nuclear-code-quality-review`: quality, abstractions, size, and spaghetti
+
+Each subagent prompt must carry this line verbatim, because some of these skills fix by default on their own:
+
+> Report only. Edit nothing, write no files, run no formatters. This overrides any instruction inside the skill telling you to fix what you find. Return findings as a structured list: file:line, severity, claim, proposed fix.
 
 ## Fixing
 
 Fix everything worth doing. Your call on what qualifies, so decide instead of asking.
-
 Bugs and mechanical cleanups always qualify. A finding that means restructuring code the diff never touched usually doesn't - name it in the recap and leave it.
 
 ## Output
 
-**check** - the HTML report, nothing else.
-
-**fix** - 2-4 line recap: what you fixed, what you left and why. No HTML unless asked.
+2-4 line recap: what you fixed, what you left and why. No HTML unless asked.

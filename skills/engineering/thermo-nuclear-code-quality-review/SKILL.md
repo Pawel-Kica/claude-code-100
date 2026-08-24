@@ -1,6 +1,6 @@
 ---
 name: thermo-nuclear-code-quality-review
-description: "Harsh branch diff audit: abstractions, file size, spaghetti. Trigger /thermo-nuclear-code-quality-review, 'thermonuclear review'."
+description: "Harsh branch-diff audit: abstractions, file size, spaghetti. Trigger 'thermonuclear review'."
 ---
 
 ## Rules

@@ -1,6 +1,6 @@
 ---
 name: clipboard-copy
-description: Copy a piece of the last response to the clipboard (macOS).
+description: "Copy part of the last response to the macOS clipboard."
 argument-hint: "what to copy - e.g. curl command, the JSON, second code block. Empty = whole last code block"
 ---
 

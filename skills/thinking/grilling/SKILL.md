@@ -10,7 +10,11 @@ Work the tree in **rounds**. The **frontier** is every decision whose prerequisi
 Each question should be formatted like so:
 
 ```
-❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
+❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs>
+
+(a) <first option>
+(b) <second option>
+(c) <third option>
 
 ➡️ <your recommended answer>
 ```
@@ -20,3 +24,9 @@ Each round the user answers reshapes the tree — settled decisions push the fro
 Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), dispatch a sub-agent to find it — don't ask the user for anything you could look up yourself. Don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report — ask the rest of the frontier now. The _decisions_ are the user's — put each to them and wait.
 
 The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
+
+### Internal Instructions
+
+- **ALWAYS** ask one question at a time.
+- **NEVER** use the AskUserQuestion tool. **ALWAYS** ask in plain text, in the format above.
+- **ALWAYS** put each option on its own line. **NEVER** write them in one sentence like `Options: (a) foo; (b) bar; (c) baz`. It is hard to read.

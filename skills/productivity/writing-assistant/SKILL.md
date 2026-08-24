@@ -1,6 +1,6 @@
 ---
 name: writing-assistant
-description: "Draft or polish messages, emails, prose in a warm human voice. Trigger /writing-assistant, 'polish this'."
+description: "Draft or polish messages and emails in a warm human voice. Trigger 'polish this'."
 ---
 
 Match the user's language, write natively in it, never translate.

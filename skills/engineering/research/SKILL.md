@@ -1,6 +1,6 @@
 ---
 name: research
-description: "Research something: web, codebase, past sessions etc. Depth light to ultra. Trigger /research, 'research it', 'deep research'."
+description: "Research web, codebase, past sessions. Depth light to ultra. Trigger 'research it', 'deep research'."
 argument-hint: <question> [light|deep|ultra]
 ---
 

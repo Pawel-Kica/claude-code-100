@@ -1,4 +1,4 @@
 interface:
   display_name: "E2E Codex"
-  short_description: "Test real apps through Codex Browser"
+  short_description: "Test real apps through Chrome DevTools MCP"
   default_prompt: "Use $e2e-codex to verify this change end to end."

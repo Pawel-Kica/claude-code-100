@@ -1,6 +1,6 @@
 ---
 name: scope
-description: "Plan change end-to-end into spec. No repo write. Trigger /scope, 'scope feature'."
+description: "Plan a change end to end into a spec, no repo writes. Trigger 'scope feature'."
 ---
 
 Turn a fuzzy idea into a sharp, implement-ready spec.
@@ -13,7 +13,7 @@ Run in order:
 3. _(optional)_ `/throwaway-prototype` - build a throwaway prototype before the spec, then keep grilling or move to spec.
 4. _(optional)_ `/tdd` - design the tests, plan red-green. Take your time, red-green is the core.
 5. `/to-spec` - write the spec folder. TDD step ran -> seams + Testing Decisions land in the spec.
-6. `/spec-review` - two agents review the written spec, fix blockers, surface open decisions.
+6. `/spec-review` - always launch three agents to review the written spec
 
 Adapt depth to how well user knows the feature:
 

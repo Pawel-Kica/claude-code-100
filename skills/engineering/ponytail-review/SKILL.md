@@ -1,6 +1,6 @@
 ---
 name: ponytail-review
-description: "Diff review for over-engineering only: what to delete, reinvented stdlib, dead abstractions. Trigger '/ponytail-review'."
+description: "Review a diff for over-engineering only: what to delete."
 ---
 
 Review diffs for unnecessary complexity. One line per finding: location, what

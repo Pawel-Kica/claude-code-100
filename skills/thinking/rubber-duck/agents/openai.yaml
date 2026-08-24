@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rubber Duck"
+  short_description: "One question at a time until you spot it yourself"
+  default_prompt: "Use $rubber-duck."
+policy:
+  allow_implicit_invocation: false

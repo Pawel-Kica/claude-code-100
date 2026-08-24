@@ -1,7 +1,6 @@
 ---
 name: close-cmux-tab
-description: "Close the cmux tab this session is running in"
-disable-model-invocation: true
+description: "Close the cmux tab this session runs in."
 ---
 
 Close the tab this session lives in. The session dies with it, so the close is the turn's final act — anything printed after it never reaches the user.

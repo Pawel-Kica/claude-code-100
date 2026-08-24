@@ -1,6 +1,6 @@
 ---
 name: problem-first
-description: "Einstein 55/5: define the real problem before any solution, shared understanding of the problem first. Trigger /problem-first, 'problem first'."
+description: "Define the real problem before any solution. Trigger 'problem first'."
 ---
 
 Your only task is to define the problem. Einstein 55/5 formula - spend 55 minutes thinking about the problem, and 5 minutes thinking about the solution.

@@ -1,6 +1,6 @@
 ---
 name: second-opinion
-description: "Stress-test a plan before you commit: strongest case against, then what to actually pick. Trigger /second-opinion."
+description: "Strongest case against a plan, then what to actually pick."
 ---
 
 Before I commit to this, argue against it.
