@@ -18,7 +18,7 @@ Implement the work described in the spec.
 
 ## Finish
 1. Verify via `/e2e` if possible. Skip only if the change has nothing to drive.
-2. Run `/matt-code-review` against the spec.
+2. Run `/super-code-review` and fix everything worth doing.
 3. Recap 2-4 lines: what changed.
 
 ## Hard limit
