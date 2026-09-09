@@ -54,6 +54,7 @@ Prompts you just copy and paste. Nothing to install.
 | [scope](skills/engineering/scope/SKILL.md) | Fuzzy idea into an implement-ready spec. Research, grill, prototype, write. |
 | [research](skills/engineering/research/SKILL.md) | Web, codebase, past sessions. Light to ultra depth. |
 | [to-spec](skills/engineering/to-spec/SKILL.md) | Writes the decided context into a spec. |
+| [to-local-tickets](skills/engineering/to-local-tickets/SKILL.md) | Splits a spec into tracer-bullet tickets, each declaring what blocks it. |
 | [tdd](skills/engineering/tdd/SKILL.md) | Red-green loop, and what makes a test worth keeping. Seams, anti-patterns, rules. |
 | [spec-review](skills/engineering/spec-review/SKILL.md) | Three agents review the finished spec. Fixes blockers, asks the open decisions. |
 | [spec-implement](skills/engineering/spec-implement/SKILL.md) | Builds the spec. E2E verify, review, recap. Never commits. |
@@ -110,7 +111,7 @@ For the [cmux](https://cmux.com) terminal only — each skill drives real tabs o
 
 ## Credit
 
-`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `handoff` and `matt-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me`, `prototype` and `tdd` are copied as-is; `to-spec`, `handoff` and `matt-code-review` carry my own edits on top (`matt-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`).
+`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `to-local-tickets`, `handoff` and `matt-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me`, `prototype` and `tdd` are copied as-is; `to-spec`, `to-local-tickets`, `handoff` and `matt-code-review` carry my own edits on top (`to-local-tickets` is upstream's `to-tickets`, publishing tickets as local files instead of a tracker; `matt-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`).
 
 ## License
 
