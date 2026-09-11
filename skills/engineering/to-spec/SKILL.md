@@ -18,8 +18,7 @@ Check with the user that these seams match their expectations.
 <spec-template>
 
 > Disclaimer: this spec is a snapshot from planning, YYYY-MM-DD (fill with today's date). Great for context
-> and intent, but a lot could change since. Code is the source of truth. The
-> older the spec, the less it matches reality.
+> and intent, but a lot could change since. Code is the source of truth. The older the spec, the less it matches reality.
 
 ## Problem Statement
 
@@ -31,12 +30,14 @@ The solution to the problem, from the user's perspective.
 
 ## Architecture
 
-The part the user scans first:
+Show modifications to the following areas (user scans for this section to understand the scope of the work):
 
-- DB / migrations: new tables, fields, what's written vs read.
-- Models / serializers touched.
-- API endpoints added/changed.
-- Frontend: WHERE it lands (route, screen, component), not how it looks.
+- Database / Migrations
+- Models / Serializers
+- API endpoints
+- Any other CRITICAL areas
+
+Show example code/snippets for each area, if possible. If nothing important, for each section just say "None".
 
 ## User Stories
 
@@ -84,10 +85,16 @@ Any further notes about the feature.
 
 </spec-template>
 
+## After the spec
+
+Always run these steps automatically, in order.
+
+4. Skill `/spec-review` (read and execute this skill)
+
+5. Print the path to the spec and copy it to the clipboard.
+
 ### Internal Instructions
 
-- Spec goes to `~/.claude/specs/<name>/spec.md`, artifacts flat beside it. Never write into a repo.
-- Always English. Caveman voice.
+- Always English.
 - Seams + Testing Decisions only when the user asked for TDD. Otherwise skip both.
-- HTML only when asked, via /html.
-- Print the path, pbcopy it.
+- Spec goes to `~/.claude/specs/<name>/spec.md`, artifacts flat beside it. Never write into a repo at this stage.

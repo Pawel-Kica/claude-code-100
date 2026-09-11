@@ -57,18 +57,19 @@ Prompts you just copy and paste. Nothing to install.
 | [to-local-tickets](skills/engineering/to-local-tickets/SKILL.md) | Splits a spec into tracer-bullet tickets, each declaring what blocks it. |
 | [tdd](skills/engineering/tdd/SKILL.md) | Red-green loop, and what makes a test worth keeping. Seams, anti-patterns, rules. |
 | [spec-review](skills/engineering/spec-review/SKILL.md) | Three agents review the finished spec. Fixes blockers, asks the open decisions. |
-| [spec-implement](skills/engineering/spec-implement/SKILL.md) | Builds the spec. E2E verify, review, recap. Never commits. |
+| [implement-spec](skills/engineering/implement-spec/SKILL.md) | Builds the spec. Works the tickets as a task graph, E2E verify, review, recap. Never commits. |
 | [e2e](skills/engineering/e2e/SKILL.md) | Drives the real app until the change provably works. Fixes what breaks. |
 | [e2e-codex](skills/engineering/e2e-codex/SKILL.md) | Same, for Codex Desktop Browser. Ships a report builder. |
 | [prototype](skills/engineering/prototype/SKILL.md) | Throwaway code that answers a design question. |
 | [throwaway-prototype](skills/engineering/throwaway-prototype/SKILL.md) | One standalone HTML page, variants on a query param. |
 | [html-planning](skills/engineering/html-planning/SKILL.md) | Grilling, but the interview lives on an HTML page instead of the terminal. |
-| [matt-code-review](skills/engineering/matt-code-review/SKILL.md) | Two-axis diff review: repo standards, and faithfulness to the spec. |
+| [spec-code-review](skills/engineering/spec-code-review/SKILL.md) | Two-axis diff review: repo standards, and faithfulness to the spec. |
 | [thermo-nuclear-code-quality-review](skills/engineering/thermo-nuclear-code-quality-review/SKILL.md) | Harsh audit: abstractions, file size, spaghetti. |
 | [ponytail-review](skills/engineering/ponytail-review/SKILL.md) | Over-engineering only. What to delete, what stdlib already does. |
-| [super-code-review](skills/engineering/super-code-review/SKILL.md) | Runs the three reviewers in parallel, merges, then fixes. |
+| [super-code-review](skills/engineering/super-code-review/SKILL.md) | Runs four reviewers in parallel, verifies findings, then fixes. |
+| [project-name-code-conventions](skills/engineering/project-name-code-conventions/SKILL.md) | Template: check project conventions and save feedback as Bad/Good examples. Replace project-name with yours. |
 
-The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `scope` chains the whole thing: research, grill, optionally `tdd`, `to-spec`, then `spec-review`. `spec-implement` copies the one you name into `docs/specs/` and builds it.
+The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `scope` chains the whole thing: research, grill, optionally `tdd`, `to-spec`, then `spec-review`. `implement-spec` copies the one you name into `docs/specs/` and builds it.
 
 ### productivity
 
@@ -79,6 +80,8 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sc
 | [clipboard-copy](skills/productivity/clipboard-copy/SKILL.md) | Pulls one piece of the last reply to your clipboard. |
 | [past-conversations](skills/productivity/past-conversations/SKILL.md) | Search or resume past Claude Code chats by topic. |
 | [writing-assistant](skills/productivity/writing-assistant/SKILL.md) | Drafts and polishes prose in a warm human voice. Kills AI slop. |
+| [say-it-simply](skills/productivity/say-it-simply/SKILL.md) | Re-says the last answer short and human, when it came out as slop. |
+| [simple-skill](skills/productivity/simple-skill/SKILL.md) | Turns one sentence into a short, goal-oriented skill. |
 | [handoff](skills/productivity/handoff/SKILL.md) | Compacts the conversation into a doc a fresh agent can resume from. |
 | [handoff-implement](skills/productivity/handoff-implement/SKILL.md) | Finds a handoff from a loose description and just continues the work. |
 
@@ -111,7 +114,9 @@ For the [cmux](https://cmux.com) terminal only — each skill drives real tabs o
 
 ## Credit
 
-`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `to-local-tickets`, `handoff` and `matt-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me`, `prototype` and `tdd` are copied as-is; `to-spec`, `to-local-tickets`, `handoff` and `matt-code-review` carry my own edits on top (`to-local-tickets` is upstream's `to-tickets`, publishing tickets as local files instead of a tracker; `matt-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`).
+`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me`, `prototype` and `tdd` are copied as-is; `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` carry my own edits on top (`to-local-tickets` is upstream's `to-tickets`, publishing tickets as local files instead of a tracker; `spec-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`, and it takes the spec path from you instead of looking it up on an issue tracker).
+
+`implement-spec` is a rewrite of his `skills/in-progress/implement-spec`, copied at `5b15a47` and reworked to produce uncommitted work on the current branch instead of a worktree, a branch and a PR. His structure stayed: spec plus tickets as a task graph with a frontier, sparse subagent comms through context pointers, implementer subagents working the frontier.
 
 ## License
 

@@ -45,6 +45,7 @@ Then:
 - Someone else's site is not a contract. Its DOM can differ between two loads in the same browser, so scrape `innerText` off a coarse container and regex it instead of trusting a selector
 - Logged-out or second-user flows: a fresh context, don't log the main one out
 - Behaviour a screenshot can't catch (sub-second flash, duplicate requests, race): `initScript` with a MutationObserver or rAF sampler, or patch `window.fetch` and read the counts back
+- Local dev without hot reload keeps serving the old bundle. After a code or build change, reload the page and re-map before continuing
 - No UI for the change (scheduled task, API only, webhook): drive it anyway, say that is what you did. `curl` the real endpoint on the running server first, else call the service function in the app's own shell. Assert on the response and on what it changed
 
 ## Map first
@@ -70,6 +71,7 @@ Then:
 - Mutate and restore: rename, verify, rename back
 - Seed through the app's own API or service, not direct DB writes. Those skip side effects and fake a broken UI
 - Back up before any destructive DB op
+- External test sends (email, SMS, WhatsApp) go to the user's own authorized endpoints
 
 ## Answer
 
@@ -79,7 +81,7 @@ Answer the question that was asked: what works, what didn't, what you fixed. No 
 
 Four modes:
 - **Default**, no artifacts. The prose answer is the deliverable. This is what runs unless the user asked for more
-- **Screenshots**, **Record** and **Frame Locked**, one self-contained HTML page each. Picked by what the user asked for, described below
+- **Screenshots**, **Record** and **high-quality**, one self-contained HTML page each. Picked by what the user asked for, described below
 
 The page is light theme. Never hand-roll it: fill `~/.claude/skills/e2e/report-template.html`, replacing `__TITLE__`, `__SUB__`, `__VERDICT__`, `__DATA__` (steps array, shape in the comment above it) and `__VIDEO__` (data URI, or `""` for Screenshots mode, which drops the video and chapters by itself). It is the starting point, not a cage: extend it when the run needs more, several recordings, features side by side, anything the six-step strip cannot carry.
 
@@ -92,8 +94,9 @@ And:
 - `max-height: 76vh; object-fit: contain`, crops and full-page shots share the same slot
 - the captions carry the answer. If the question was "how far is it", the number belongs in the caption
 - stills come from the same run as the video, stamped with their frame the moment the wait resolves, before any hold. Otherwise "play from here" lies
+- include the requested screenshots inline in the final response, and link the self-contained report next to them
 
-**Screenshots** ("show me", "screenshots", "generate html").
+**Screenshots** ("show" is the main trigger; also "screenshots", "generate html").
 
 **Record** ("record it"): Playwright `recordVideo`, driving live and reacting as you go.
 
@@ -104,7 +107,7 @@ And:
 - take the stills in the same run, they do not stall the video clock
 - 25fps wallclock, and during a scroll only ~2 frames in 3 are new. Enough to show a flow, not to show motion
 
-**Frame Locked** ("frame locked", or motion is the subject: animation, scroll, transition):
+**high-quality** ("high-quality", or motion is the subject: animation, scroll, transition):
 - map the run to a playback timeline before capture. Give each action, wait, animation, inspection and hold enough screen time to be understood at normal viewing speed. Let the flow determine the total duration
 - set `expectedDurationSeconds` in the capture script and derive `frameBudget = Math.ceil(expectedDurationSeconds * 60)`. A short form can be ~15s; a long drawing can be 60-90s. Examples, not limits
 - one fresh screenshot per output frame after two rAFs, encoded CFR 60
@@ -141,5 +144,6 @@ And:
 - Assert an auto-dismissing toast immediately, or you will miss it and call it missing
 - Custom controls are often `<div role="button">` or `<tr role="button">`. `locator('button')` won't see them
 - Drive a native `<select>` with `selectOption()`, or set `.value` and dispatch `change`
+- A `window.confirm` or `window.alert` blocks every later call. Answer it with `handle_dialog` before anything else
 - Client-side-only search returns nothing for rows not on the loaded page. Read the source before trusting an empty result
 - Report template: chips and thumbs both wrap, no horizontal sliders, nothing auto-scrolls the page during playback. Video and stage are decoupled: thumbs/arrows change only the stage, playback moves only the chip highlight, only a chip or "play from here" seeks the video. Keep all of that when extending

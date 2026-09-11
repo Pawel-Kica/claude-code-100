@@ -1,19 +1,20 @@
 ---
 name: to-local-tickets
 description: "Break a spec into tracer-bullet tickets. Trigger /to-local-tickets."
+argument-hint: "<spec path or name>"
 ---
 
 # To Local Tickets
 
 Break a spec into a set of **tickets**: tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
-A spec path or name is required (an argument, or the spec this session just wrote). No spec → stop and tell the user to run `/to-spec` first, then this.
+A spec path or name is required as an argument. No spec → stop and tell the user to provide a spec.
 
 ## Process
 
 ### 1. Gather context
 
-Work from whatever is already in the conversation context. If the user passes a reference (a spec path or name) as an argument, fetch it and read its full body. A spec this session just wrote counts.
+Read the full body of the spec (`~/.claude/specs/<name>/spec.md`), plus whatever is already in the conversation context.
 
 ### 2. Explore the codebase (optional)
 

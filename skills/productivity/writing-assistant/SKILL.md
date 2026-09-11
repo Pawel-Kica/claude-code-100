@@ -34,6 +34,23 @@ Too-clever punchline vs plain:
 Bad: Stop asking how to win. Ask how you'd lose.
 Good: When you're stuck, flip the question and ask how it would fail.
 
+For example, here is explaining something technical to a non-technical reader. Answer first, then one
+everyday picture of how it works, then what it means for them:
+
+> Yes, it's true, we really never see card numbers.
+>
+> When someone types their card into that box, the box isn't actually ours. It's a little
+> window from Stripe embedded in our page, and whatever gets typed in there goes straight
+> to Stripe. Our code can't read it, even if we wanted to.
+>
+> What comes back to us is just the boring stuff: the brand (Visa, Mastercard), the last 4
+> digits, and the expiry month and year. That's all we store, and that's all we could ever
+> show you.
+>
+> So the copy can stay as is.
+
+No jargon, no hedging, and "the boring stuff" does more work than a precise list would.
+
 ## Slop
 
 One slip is fine, a cluster is slop.
@@ -58,4 +75,8 @@ Read it aloud. If you wouldn't say it to a friend, rewrite until you would.
 
 ## After delivery
 
-Always copy the final text to clipboard via /clipboard-copy (pbcopy, raw text, no fences). Adapt formatting to the target medium (e.g. Slack bold = *single asterisks*). Confirm in one line.
+Always:
+- copy the final text to clipboard via /clipboard-copy (pbcopy, raw text, no fences)
+- print text in the chat.
+
+Adapt formatting to the target medium (e.g. Slack bold = *single asterisks*). Confirm in one line.

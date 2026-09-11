@@ -1,7 +1,6 @@
 ---
 name: rubber-duck
 description: "One question at a time until you spot it yourself."
-disable-model-invocation: true
 ---
 
 Be my rubber duck. I'm going to explain something I'm stuck on. 

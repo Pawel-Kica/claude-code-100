@@ -27,6 +27,6 @@ The session is done when the frontier is empty: every branch of the design tree 
 
 ### Internal Instructions
 
-- **ALWAYS** ask one question at a time.
+- **ALWAYS** ask one question at a time. **NEVER** ask multiple questions in one round (override above instructions, that's fine)
 - **NEVER** use the AskUserQuestion tool. **ALWAYS** ask in plain text, in the format above.
-- **ALWAYS** put each option on its own line. **NEVER** write them in one sentence like `Options: (a) foo; (b) bar; (c) baz`. It is hard to read.
+- **ALWAYS** put each option on its own line. **NEVER** write them in one sentence like `Options: (a) foo; (b) bar; (c) baz`.

@@ -7,9 +7,7 @@ Run `/grilling` and follow all of it. Already grilling → just keep going. This
 
 ## The one override
 
-The whole frontier ships as one HTML page instead of one question at a time in the terminal. The page is the workspace and the input surface, the terminal carries one line per round.
-
-Don't invent questions to fill a page. The frontier decides how many there are.
+The whole frontier ships as one HTML page instead of one question at a time in the terminal. The page is the workspace and the input surface, the terminal carries one line per round. Don't invent questions to fill a page. The frontier decides how many there are.
 
 ## The file
 
@@ -36,10 +34,19 @@ File already exists → read it first. Its `DECIDED` and `HISTORY` consts are th
 Some questions need a look, a feel, a motion, a layout. Build the thing and put it *inside* the plan page, as part of the question.
 
 - Never open an artifact in its own tab, window or preview. The user asked for a plan, not a demo. A stray tab is an interruption.
-- Keep it beside the plan as `~/.claude/html-planning/<topic-slug>-<what>.html` and embed it: `n:` renders raw HTML, so `<iframe src="<topic-slug>-<what>.html" style="width:100%;height:760px;border:1px solid var(--line);border-radius:10px">` drops a live, playable artifact straight into the question.
+- Keep it beside the plan as `~/.claude/html-planning/<topic-slug>-<what>.html` and embed it: `n:` renders raw HTML, so `<iframe src="<topic-slug>-<what>.html" style="width:100%;height:380px;border:1px solid var(--line);border-radius:10px">` drops a live, playable artifact straight into the question.
 - Interactive goes in as an iframe. A static comparison can go in as `<img>`.
 - `/throwaway-prototype` builds one fast, with two overrides. Save it beside the plan as above, and skip its "open in Chrome once" step. It gets embedded, not opened.
 - One artifact per question. Variants belong to a switcher inside the artifact, not to four separate files.
+- Screenshot it with chrome-devtools before it ships in the page. That check happens in the devtools browser, never in the user's Chrome.
+
+### The shape that works
+
+- The switcher's letters are the question's option letters. A in the frame is A in the options, so an answer is one letter either way.
+- Build it from the real thing's CSS at the real thing's size. A mock in the plan page's palette is a mock of the plan page.
+- Temporal decision, looping artifact. A countdown that actually runs out and plays the move settles what a still frame argues about.
+- Caption every variant with what it costs, not what it is. "Quiet, easy to miss" is an answer. "A small ring" is a label.
+- Keep it small. Click through every variant in the devtools browser, read `document.body.scrollHeight` on each, size the iframe to the tallest. No scrollbar inside the frame, and no 700px hole in the page either.
 
 ## The end
 
