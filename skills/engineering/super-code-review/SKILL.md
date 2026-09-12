@@ -1,6 +1,6 @@
 ---
 name: super-code-review
-description: "Run several code-review skills in parallel, then fix. Trigger 'super review'."
+description: Run several code-review skills in parallel, then fix. Trigger 'super review'.
 ---
 
 Review the current diff, including staged and unstaged changes, or the scope the user specifies.

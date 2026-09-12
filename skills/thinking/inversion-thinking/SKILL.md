@@ -1,6 +1,7 @@
 ---
 name: inversion-thinking
 description: "Munger inversion: solve it by asking how it fails. Trigger 'invert it', 'inversion'."
+disable-model-invocation: true
 ---
 
 Use Charlie Munger inversion thinking process to tackle a problem or help user to make a decision.

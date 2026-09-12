@@ -1,6 +1,6 @@
 ---
 name: html
-description: "Render an answer as a self-contained HTML page and open it."
+description: Render an answer as a self-contained HTML page and open it.
 ---
 
 A single `.html` in the browser beats a wall of markdown. (After Thariq Shihipar's html-effectiveness.)

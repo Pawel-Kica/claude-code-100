@@ -1,6 +1,6 @@
 ---
 name: asymmetric-leverage
-description: "Find the vital few inputs that drive the result, cut the rest. Trigger '80/20', 'pareto', 'highest leverage'."
+description: Find the vital few inputs that drive the result, cut the rest. Trigger '80/20', 'pareto', 'highest leverage'.
 disable-model-invocation: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: scope
-description: "Plan a change end to end into a spec, no repo writes. Trigger 'scope feature'."
+description: Plan a change end to end into a spec, no repo writes. Trigger 'scope feature'.
 ---
 
 Turn a fuzzy idea into a sharp, implement-ready spec.

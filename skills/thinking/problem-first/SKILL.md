@@ -1,6 +1,7 @@
 ---
 name: problem-first
-description: "Define the real problem before any solution. Trigger 'problem first'."
+description: Define the real problem before any solution. Trigger 'problem first'.
+disable-model-invocation: true
 ---
 
 Your only task is to define the problem. Einstein 55/5 formula - spend 55 minutes thinking about the problem, and 5 minutes thinking about the solution.

@@ -58,6 +58,7 @@ Prompts you just copy and paste. Nothing to install.
 | [tdd](skills/engineering/tdd/SKILL.md) | Red-green loop, and what makes a test worth keeping. Seams, anti-patterns, rules. |
 | [spec-review](skills/engineering/spec-review/SKILL.md) | Three agents review the finished spec. Fixes blockers, asks the open decisions. |
 | [implement-spec](skills/engineering/implement-spec/SKILL.md) | Builds the spec. Works the tickets as a task graph, E2E verify, review, recap. Never commits. |
+| [implement-ticket](skills/engineering/implement-ticket/SKILL.md) | Builds one ticket. Checks its blockers, ticks the acceptance criteria, reviews. Never commits. |
 | [e2e](skills/engineering/e2e/SKILL.md) | Drives the real app until the change provably works. Fixes what breaks. |
 | [e2e-codex](skills/engineering/e2e-codex/SKILL.md) | Same, for Codex Desktop Browser. Ships a report builder. |
 | [prototype](skills/engineering/prototype/SKILL.md) | Throwaway code that answers a design question. |

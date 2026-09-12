@@ -1,6 +1,6 @@
 ---
 name: second-opinion
-description: "Strongest case against a plan, then what to actually pick."
+description: Strongest case against a plan, then what to actually pick.
 ---
 
 Before I commit to this, argue against it.

@@ -1,6 +1,6 @@
 ---
 name: handoff-implement
-description: "Find a handoff doc from a loose description and continue the work."
+description: Find a handoff doc from a loose description and continue the work.
 argument-hint: "Which handoff? (e.g. '<description>')"
 ---
 

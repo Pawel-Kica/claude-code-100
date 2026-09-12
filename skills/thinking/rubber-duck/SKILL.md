@@ -1,6 +1,6 @@
 ---
 name: rubber-duck
-description: "One question at a time until you spot it yourself."
+description: One question at a time until you spot it yourself.
 ---
 
 Be my rubber duck. I'm going to explain something I'm stuck on. 

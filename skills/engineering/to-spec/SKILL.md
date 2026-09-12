@@ -1,6 +1,6 @@
 ---
 name: to-spec
-description: "Turn the current conversation into a spec, no interview, just synthesis of what's already discussed. Trigger /to-spec, 'to spec'."
+description: Turn the current conversation into a spec, no interview, just synthesis of what's already discussed. Trigger /to-spec, 'to spec'.
 ---
 
 This skill takes the current conversation context and codebase understanding and produces a spec (you may know this document as a PRD). Do NOT interview the user — just synthesize what you already know.

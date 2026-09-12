@@ -1,7 +1,8 @@
 ---
 name: project-name-code-conventions
-description: "Fix project-name convention violations, or record feedback as a reusable example."
+description: Fix project-name convention violations, or record feedback as a reusable example.
 argument-hint: "[feedback <what>] | [scope]"
+disable-model-invocation: true
 ---
 
 Check naming, style, comments, structure, and documented repo rules. Leave correctness bugs to code review.

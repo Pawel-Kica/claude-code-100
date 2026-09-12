@@ -1,6 +1,6 @@
 ---
 name: to-local-tickets
-description: "Break a spec into tracer-bullet tickets. Trigger /to-local-tickets."
+description: Break a spec into tracer-bullet tickets. Trigger /to-local-tickets.
 argument-hint: "<spec path or name>"
 ---
 

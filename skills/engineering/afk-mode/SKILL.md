@@ -1,6 +1,6 @@
 ---
 name: afk-mode
-description: "Take a task end to end, autonomously, no clarifying questions."
+description: Take a task end to end, autonomously, no clarifying questions.
 ---
 
 AFK mode. I'm away, take the task end to end.

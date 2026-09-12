@@ -1,6 +1,6 @@
 ---
 name: spec-review
-description: "Two-agent review of a finished spec against the codebase. Trigger 'review the spec'."
+description: Two-agent review of a finished spec against the codebase. Trigger 'review the spec'.
 ---
 
 Review a finished spec for blockers only. Target the spec just written, or the name/path given.

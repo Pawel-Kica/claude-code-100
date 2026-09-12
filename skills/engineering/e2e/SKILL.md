@@ -1,6 +1,6 @@
 ---
 name: e2e
-description: "Drive the real app end to end, fix what breaks, re-verify. Trigger 'e2e it', 'test it for real'."
+description: Drive the real app end to end, fix what breaks, re-verify. Trigger 'e2e it', 'test it for real'.
 ---
 
 Give it a goal. Drive the real thing until you can answer whether it works. Fix what breaks, verify the fix, answer.

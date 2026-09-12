@@ -1,6 +1,6 @@
 ---
 name: throwaway-prototype
-description: "Throwaway HTML page prototype, variants by default. Trigger 'prototype this page'."
+description: Throwaway HTML page prototype, variants by default. Trigger 'prototype this page'.
 ---
 
 Run `/prototype`'s UI branch with these overrides:

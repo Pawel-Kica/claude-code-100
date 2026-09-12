@@ -1,6 +1,6 @@
 ---
 name: replace-current-session
-description: "Hand off to a fresh Claude session in a new cmux tab, close this one."
+description: Hand off to a fresh Claude session in a new cmux tab, close this one.
 argument-hint: "[what the successor should focus on]"
 ---
 

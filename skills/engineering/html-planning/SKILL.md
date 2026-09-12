@@ -1,6 +1,6 @@
 ---
 name: html-planning
-description: "Plan something by interviewing the user through an HTML page instead of the terminal. Trigger /html-planning, 'plan it in html'."
+description: Plan something by interviewing the user through an HTML page instead of the terminal. Trigger /html-planning, 'plan it in html'.
 ---
 
 Run `/grilling` and follow all of it. Already grilling → just keep going. This only changes where the questions land.

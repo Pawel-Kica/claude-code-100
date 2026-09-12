@@ -1,6 +1,6 @@
 ---
 name: spawn-new-session
-description: "Hand work to Claude agents in their own cmux tabs."
+description: Hand work to Claude agents in their own cmux tabs.
 argument-hint: "[task, or several tasks to split across agents]"
 ---
 

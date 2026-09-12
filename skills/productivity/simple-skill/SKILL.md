@@ -16,6 +16,7 @@ Write `~/.claude/skills/<name>/SKILL.md`:
 - body: 
   - the goal and what done looks like
   - numbered steps only when order matters
+  - caveman voice: imperative fragments, arrows, no filler verbs. `- all tickets: <path>`, never "all tickets live in <path>"
 
 Before saving, delete:
 - lines that don't change behavior: "be thorough", "make it readable", "high quality", "carefully"
@@ -49,4 +50,30 @@ Give me the real case for doing it a different way, the one a smart skeptic woul
 Make it as strong as you honestly can, not a weak version I can wave off. Then tell me which you'd actually pick, and why.
 
 If my plan is genuinely fine, just say so. Don't invent objections.
+```
+
+### implement-ticket
+
+```md
+---
+description: Implement one ticket. Trigger /implement-ticket.
+argument-hint: "<ticket number or slug> [spec name]"
+---
+
+Implement a single ticket, end to end, as uncommitted work on the current branch.
+
+Artifacts location:
+- spec: `~/.claude/specs/<name>/spec.md` or in repo `docs/specs/<name>.md`
+- all tickets: `~/.claude/specs/<name>/tickets/<NN>-<slug>.md`
+
+Steps:
+1. Copy the ticket to repo `docs/specs/<name>/tickets/`.
+2. Read the ticket + the spec sections it touches.
+3. Check **Blocked by**. Blocker missing from the code -> say so, stop.
+4. Read repo `CLAUDE.md`, follow it.
+5. Implement. Tick the acceptance criteria in the repo ticket file.
+6. Run `/spec-code-review`, fix what it raises.
+7. Recap, 2-4 lines.
+
+Current branch only. No checkout, no new branch, no commit, no push, no PR.
 ```
