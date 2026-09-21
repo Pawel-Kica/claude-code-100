@@ -38,7 +38,7 @@ Some questions need a look, a feel, a motion, a layout. Build the thing and put 
 - Interactive goes in as an iframe. A static comparison can go in as `<img>`.
 - `/throwaway-prototype` builds one fast, with two overrides. Save it beside the plan as above, and skip its "open in Chrome once" step. It gets embedded, not opened.
 - One artifact per question. Variants belong to a switcher inside the artifact, not to four separate files.
-- Screenshot it with chrome-devtools before it ships in the page. That check happens in the devtools browser, never in the user's Chrome.
+- Screenshot it with `playwright-cli` (own `-s=` session, run from a `/tmp` dir) before it ships in the page. That check happens in the headless browser, never in the user's Chrome.
 
 ### The shape that works
 
@@ -46,7 +46,7 @@ Some questions need a look, a feel, a motion, a layout. Build the thing and put 
 - Build it from the real thing's CSS at the real thing's size. A mock in the plan page's palette is a mock of the plan page.
 - Temporal decision, looping artifact. A countdown that actually runs out and plays the move settles what a still frame argues about.
 - Caption every variant with what it costs, not what it is. "Quiet, easy to miss" is an answer. "A small ring" is a label.
-- Keep it small. Click through every variant in the devtools browser, read `document.body.scrollHeight` on each, size the iframe to the tallest. No scrollbar inside the frame, and no 700px hole in the page either.
+- Keep it small. Click through every variant in the headless browser, read `document.body.scrollHeight` on each, size the iframe to the tallest. No scrollbar inside the frame, and no 700px hole in the page either.
 
 ## The end
 

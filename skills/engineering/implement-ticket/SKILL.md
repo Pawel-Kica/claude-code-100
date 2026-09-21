@@ -1,10 +1,10 @@
 ---
 name: implement-ticket
-description: Implement one ticket. Trigger /implement-ticket.
-argument-hint: "<ticket number or slug> [spec name]"
+description: Implement one or more tickets. Trigger /implement-ticket.
+argument-hint: "<ticket number(s) or slug> [spec name]"
 ---
 
-Implement a single ticket, end to end, as uncommitted work on the current branch.
+Implement one or more tickets, end to end, as uncommitted work on the current branch.
 
 ## Artifacts location:
 - spec: `~/.claude/specs/<name>/spec.md` or in repo `docs/specs/<name>.md`
@@ -12,17 +12,19 @@ Implement a single ticket, end to end, as uncommitted work on the current branch
 - already implemented tickets: repo `docs/specs/<name>/tickets/<NN>-<slug>.md`
 
 ## Steps:
-1. Copy the ticket to repo `docs/specs/<name>/tickets/`.
+0. If it's first ticket, copy also the spec to repo `docs/specs/<name>.md` (if not already there)
 
-2. Read the ticket + the spec sections it touches.
+1. Copy the ticket(s) to repo `docs/specs/<name>/tickets/`.
+
+2. Read the ticket(s) + the spec sections they touch.
 
 3. Check **Blocked by** - numbering is dependency order, so ticket 03 means 01 and 02 are done. Blocker missing from the code -> say so, stop.
 
 4. Read repo `CLAUDE.md`, follow it.
 
-5. Implement. Tick the acceptance criteria in the repo ticket file.
+5. Implement, ticket by ticket in numbering order. Tick the acceptance criteria in each repo ticket file.
 
-6. Run `/spec-code-review`, fix what it raises.
+6. Recap what changed, plus anything unplanned. Add a `NOTE:` to related tickets if needed.
 
 ## Rules: 
 - current branch only - no checkout, no new branch

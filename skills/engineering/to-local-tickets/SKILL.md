@@ -64,3 +64,15 @@ Work the **frontier**: any ticket whose blockers are all done. For a purely line
 </local-ticket-template>
 
 Avoid specific file paths or code snippets: they go stale fast. Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it and note briefly that it came from a prototype. Trim to the decision-rich parts, not a working demo, just the important bits.
+
+### 5. List the tickets in the spec
+
+Append a `## Tickets` list to the end of `spec.md`: one line per ticket, `<NN>-<slug>`, then a description of up to 6 words.
+
+```markdown
+## Tickets
+
+- 01-blocked-country-model - store blocked countries per team
+- 02-booking-guard - reject bookings from blocked countries
+- 03-settings-ui - admins edit blocked country list
+```

@@ -78,6 +78,7 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sc
 |---|---|
 | [caveman](skills/productivity/caveman/SKILL.md) | Cuts the fluff, keeps the substance. |
 | [html](skills/productivity/html/SKILL.md) | Renders an answer as a page and opens it. For things markdown ruins. |
+| [variants](skills/productivity/variants/SKILL.md) | 3-5 real variants of anything on one tabbed page. You pick instead of explaining. |
 | [clipboard-copy](skills/productivity/clipboard-copy/SKILL.md) | Pulls one piece of the last reply to your clipboard. |
 | [past-conversations](skills/productivity/past-conversations/SKILL.md) | Search or resume past Claude Code chats by topic. |
 | [writing-assistant](skills/productivity/writing-assistant/SKILL.md) | Drafts and polishes prose in a warm human voice. Kills AI slop. |
@@ -115,7 +116,7 @@ For the [cmux](https://cmux.com) terminal only — each skill drives real tabs o
 
 ## Credit
 
-`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grilling`, `grill-me`, `prototype` and `tdd` are copied as-is; `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` carry my own edits on top (`to-local-tickets` is upstream's `to-tickets`, publishing tickets as local files instead of a tracker; `spec-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`, and it takes the spec path from you instead of looking it up on an issue tracker).
+`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grill-me` and `tdd` are copied as-is; `grilling`, `prototype`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` carry my own edits on top (`grilling` asks one question at a time; `prototype` defaults to 5 UI variants instead of 3 and has a shorter description; `to-local-tickets` is upstream's `to-tickets`, publishing tickets as local files instead of a tracker; `spec-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`, and it takes the spec path from you instead of looking it up on an issue tracker).
 
 `implement-spec` is a rewrite of his `skills/in-progress/implement-spec`, copied at `5b15a47` and reworked to produce uncommitted work on the current branch instead of a worktree, a branch and a PR. His structure stayed: spec plus tickets as a task graph with a frontier, sparse subagent comms through context pointers, implementer subagents working the frontier.
 

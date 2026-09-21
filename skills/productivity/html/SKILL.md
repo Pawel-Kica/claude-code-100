@@ -53,6 +53,6 @@ Really show what HTML can do.
 
 Write to `/tmp/claude-html/<slug>.html` (or your artifacts folder). Copy path to clipboard.
 
-Load `file://<path>` with `mcp__chrome-devtools__navigate_page`, screenshot to check it rendered. Broken → fix before reporting.
+From `/tmp`, `playwright-cli -s=<slug> open file://<path>`, then `screenshot` and look at it to check it rendered, then `close`. Broken → fix before reporting.
 
 Print path + one line. The file is the answer.

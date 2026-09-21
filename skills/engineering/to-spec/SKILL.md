@@ -96,5 +96,5 @@ Always run these steps automatically, in order.
 ### Internal Instructions
 
 - Always English.
-- Seams + Testing Decisions only when the user asked for TDD. Otherwise skip both.
+- Seams + Testing Decisions only when the user asked for TDD. Otherwise skip both. Don't ask user to confirm seams or testing decisions.
 - Spec goes to `~/.claude/specs/<name>/spec.md`, artifacts flat beside it. Never write into a repo at this stage.
