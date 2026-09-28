@@ -63,6 +63,7 @@ Prompts you just copy and paste. Nothing to install.
 | [e2e-codex](skills/engineering/e2e-codex/SKILL.md) | Same, for Codex Desktop Browser. Ships a report builder. |
 | [prototype](skills/engineering/prototype/SKILL.md) | Throwaway code that answers a design question. |
 | [throwaway-prototype](skills/engineering/throwaway-prototype/SKILL.md) | One standalone HTML page, variants on a query param. |
+| [single-prototype](skills/engineering/single-prototype/SKILL.md) | The same page, one version only: the thing you'd actually build. |
 | [html-planning](skills/engineering/html-planning/SKILL.md) | Grilling, but the interview lives on an HTML page instead of the terminal. |
 | [spec-code-review](skills/engineering/spec-code-review/SKILL.md) | Two-axis diff review: repo standards, and faithfulness to the spec. |
 | [thermo-nuclear-code-quality-review](skills/engineering/thermo-nuclear-code-quality-review/SKILL.md) | Harsh audit: abstractions, file size, spaghetti. |
@@ -83,6 +84,8 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sc
 | [past-conversations](skills/productivity/past-conversations/SKILL.md) | Search or resume past Claude Code chats by topic. |
 | [writing-assistant](skills/productivity/writing-assistant/SKILL.md) | Drafts and polishes any text in your plain voice. Learns from your feedback. |
 | [unslop](skills/productivity/unslop/SKILL.md) | Cuts AI tells from any writing. `writing-assistant` runs it. |
+| [show-diff](skills/productivity/show-diff/SKILL.md) | Shows the edit as a diff and waits for your yes. |
+| [prompt-helper](skills/productivity/prompt-helper/SKILL.md) | Turns a rough idea into a short, direct prompt for an agent. |
 | [say-it-simply](skills/productivity/say-it-simply/SKILL.md) | Re-says the last answer short and human, when it came out as slop. |
 | [simple-skill](skills/productivity/simple-skill/SKILL.md) | Turns one sentence into a short, goal-oriented skill. |
 | [handoff](skills/productivity/handoff/SKILL.md) | Compacts the conversation into a doc a fresh agent can resume from. |
