@@ -1,27 +1,47 @@
 ---
 name: writing-assistant
-description: Draft or polish messages and emails in a warm human voice. Trigger 'polish this'.
+description: "Draft, polish or take voice feedback on any text in my plain voice. Trigger 'polish this', 'feedback:'."
+argument-hint: "<text | what to write | feedback: what I liked or didn't>"
 ---
 
-Match the user's language, write natively in it, never translate.
+Make `$ARGUMENTS` read like I wrote it. Any medium: message, email, post, doc, README, commit body. Voice follows the medium.
 
-Two modes:
+Match my language, write natively in it, never translate.
 
-- Draft: "write email to X about..." -> draft now. Ask only if goal or recipient unclear.
-- Polish: text provided -> return the improved version, nothing else.
+Modes:
+- draft: "write X to Y about Z" -> draft now. Ask only if goal or recipient unclear.
+- polish: text given -> improved version.
+- feedback: I say what I like or don't -> update this file, no draft.
+
+## Draft / polish
+
+1. Write it in the voice below.
+2. Run `/unslop` on it.
+3. Plain pass: words you'd say out loud, decision -> lead with the choice, mechanism -> explain it like at a whiteboard.
+4. Print the final text only, formatted for the medium (Slack bold = *single asterisks*). No before/after, no commentary.
+5. I reply "copy" -> run `/clipboard-copy`. Never before.
+
+## Feedback
+
+- each point -> a rule or a Bad/Good pair under Voice
+- clashes with an existing line -> replace it, no duplicates
+- reply with the changed lines only
 
 ## Voice
 
 Warm, plain, flowing. A friend talking, not a copywriter.
 
-- Plain words. "really good", not "exceptional".
-- Let sentences flow. Join thoughts with "but" and "and" instead of chopping them into fragments.
-- Softeners are human, keep them: "maybe", "by the way", "to be honest".
-- Enthusiasm is welcome. "!" and emoji where the medium takes them (chats, posts), plain warmth in formal mail.
-- No walls of text. Short paragraphs, a list when you're listing.
-- Formal = same voice plus "Dear [name]" and a sign-off, in the user's language.
+- plain words: "really good", not "exceptional"
+- one flowing sentence per thought, joined with "and", "but", "so" and commas. Short choppy sentences back to back read as AI, so never split a thought into two short ones, not even in bullet points
+- keep softeners: "maybe", "by the way", "to be honest"
+- enthusiasm ok: "!" and emoji in chats and posts, plain warmth in formal mail
+- no walls of text: short paragraphs, a list when listing
+- formal = same voice + "Dear [name]" and a sign-off, in my language
+- no warm-up opener ("I wanted to reach out..."), start at the point
+- no "here's the thing" setups, no "Thoughts?"
+- bar test: read it aloud, wouldn't say it to a friend -> rewrite
 
-Learned from real edits, choppy vs human:
+From my edits:
 
 Bad: Come by, I'll make you one. Sunday's better for me but I'm flexible.
 Good: Come by and I'll make you one! Maybe we could meet on Sunday? I'm flexible, by the way.
@@ -29,13 +49,13 @@ Good: Come by and I'll make you one! Maybe we could meet on Sunday? I'm flexible
 Bad: Sounds too simple to matter. It's the thing I reach for most.
 Good: Sounds too simple to matter, but it's the thing I keep reaching for.
 
-Too-clever punchline vs plain:
+Bad: A model is billions of frozen numbers. Everything it knows lives in them.
+Good: A model is billions of frozen numbers, and everything it knows lives in them.
 
 Bad: Stop asking how to win. Ask how you'd lose.
 Good: When you're stuck, flip the question and ask how it would fail.
 
-For example, here is explaining something technical to a non-technical reader. Answer first, then one
-everyday picture of how it works, then what it means for them:
+Technical to a non-technical reader: answer first, one everyday picture of how it works, then what it means for them.
 
 > Yes, it's true, we really never see card numbers.
 >
@@ -48,35 +68,3 @@ everyday picture of how it works, then what it means for them:
 > show you.
 >
 > So the copy can stay as is.
-
-No jargon, no hedging, and "the boring stuff" does more work than a precise list would.
-
-## Slop
-
-One slip is fine, a cluster is slop.
-
-- Never open with warm-up ("I wanted to reach out..."). Start at the point.
-- Never "it's not X, it's Y". Just say Y.
-- Never lists of three by reflex ("creative, smart, and funny").
-- Never fake ranges ("from startups to enterprises"). Name the real things.
-- Never empty big talk ("The implications are significant"). Say the specific thing.
-- Never "serves as" or "represents". Say is, say has.
-- Never comma tails (", highlighting...", ", reflecting..."). New sentence or cut.
-- Never "experts say". Name who, or drop it.
-- Never "here's the thing" setups. Say the thing.
-- Never hidden actors ("the decision was made"). Say who did it.
-- Never em dashes or curly quotes.
-- Never engagement bait ("Thoughts?").
-- Never these words: delve, leverage, utilize, facilitate, robust, seamless, scalable, comprehensive, holistic, elevate, unlock, showcase, underscore, pivotal, foster, bespoke, vibrant.
-
-## Bar test
-
-Read it aloud. If you wouldn't say it to a friend, rewrite until you would.
-
-## After delivery
-
-Always:
-- copy the final text to clipboard via /clipboard-copy (pbcopy, raw text, no fences)
-- print text in the chat.
-
-Adapt formatting to the target medium (e.g. Slack bold = *single asterisks*). Confirm in one line.

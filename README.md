@@ -81,7 +81,8 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sc
 | [variants](skills/productivity/variants/SKILL.md) | 3-5 real variants of anything on one tabbed page. You pick instead of explaining. |
 | [clipboard-copy](skills/productivity/clipboard-copy/SKILL.md) | Pulls one piece of the last reply to your clipboard. |
 | [past-conversations](skills/productivity/past-conversations/SKILL.md) | Search or resume past Claude Code chats by topic. |
-| [writing-assistant](skills/productivity/writing-assistant/SKILL.md) | Drafts and polishes prose in a warm human voice. Kills AI slop. |
+| [writing-assistant](skills/productivity/writing-assistant/SKILL.md) | Drafts and polishes any text in your plain voice. Learns from your feedback. |
+| [unslop](skills/productivity/unslop/SKILL.md) | Cuts AI tells from any writing. `writing-assistant` runs it. |
 | [say-it-simply](skills/productivity/say-it-simply/SKILL.md) | Re-says the last answer short and human, when it came out as slop. |
 | [simple-skill](skills/productivity/simple-skill/SKILL.md) | Turns one sentence into a short, goal-oriented skill. |
 | [handoff](skills/productivity/handoff/SKILL.md) | Compacts the conversation into a doc a fresh agent can resume from. |
@@ -119,6 +120,8 @@ For the [cmux](https://cmux.com) terminal only — each skill drives real tabs o
 `grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grill-me` and `tdd` are copied as-is; `grilling`, `prototype`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` carry my own edits on top (`grilling` asks one question at a time; `prototype` defaults to 5 UI variants instead of 3 and has a shorter description; `to-local-tickets` is upstream's `to-tickets`, publishing tickets as local files instead of a tracker; `spec-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`, and it takes the spec path from you instead of looking it up on an issue tracker).
 
 `implement-spec` is a rewrite of his `skills/in-progress/implement-spec`, copied at `5b15a47` and reworked to produce uncommitted work on the current branch instead of a worktree, a branch and a PR. His structure stayed: spec plus tickets as a task graph with a frontier, sparse subagent comms through context pointers, implementer subagents working the frontier.
+
+`unslop` is Lauren Tan's, from pstack in [cursor/plugins](https://github.com/cursor/plugins/tree/main/pstack) (MIT, Copyright (c) 2026 Lauren Tan). Its rules go back to [blader/humanizer](https://github.com/blader/humanizer) (MIT), built on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing). My copy puts back the humanizer rules pstack dropped and adds a section on giving text a voice.
 
 ## License
 
