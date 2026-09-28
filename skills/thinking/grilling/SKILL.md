@@ -1,6 +1,6 @@
 ---
 name: grilling
-description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.
+description: "Grill the user relentlessly on a plan, decision or idea to stress-test it. Any 'grill' phrase."
 ---
 
 Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
@@ -13,7 +13,9 @@ Each question should be formatted like so:
 ❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs>
 
 (a) <first option>
+
 (b) <second option>
+
 (c) <third option>
 
 ➡️ <your recommended answer>
@@ -27,6 +29,5 @@ The session is done when the frontier is empty: every branch of the design tree 
 
 ### Internal Instructions
 
-- **ALWAYS** ask one question at a time. **NEVER** ask multiple questions in one round (override above instructions, that's fine)
 - **NEVER** use the AskUserQuestion tool. **ALWAYS** ask in plain text, in the format above.
-- **ALWAYS** put each option on its own line. **NEVER** write them in one sentence like `Options: (a) foo; (b) bar; (c) baz`.
+- **ALWAYS** put each option on its own line **NEVER** write them in one sentence like `Options: (a) foo; (b) bar; (c) baz`. MAKE SURE EACH OPTION IS ON ITS OWN LINE.

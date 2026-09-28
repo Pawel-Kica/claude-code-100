@@ -56,7 +56,7 @@ Prompts you just copy and paste. Nothing to install.
 | [to-spec](skills/engineering/to-spec/SKILL.md) | Writes the decided context into a spec. |
 | [to-local-tickets](skills/engineering/to-local-tickets/SKILL.md) | Splits a spec into tracer-bullet tickets, each declaring what blocks it. |
 | [tdd](skills/engineering/tdd/SKILL.md) | Red-green loop, and what makes a test worth keeping. Seams, anti-patterns, rules. |
-| [spec-review](skills/engineering/spec-review/SKILL.md) | Three agents review the finished spec. Fixes blockers, asks the open decisions. |
+| [spec-review](skills/engineering/spec-review/SKILL.md) | Two agents review the finished spec. Fixes blockers, asks the open decisions. |
 | [implement-spec](skills/engineering/implement-spec/SKILL.md) | Builds the spec. Works the tickets as a task graph, E2E verify, review, recap. Never commits. |
 | [implement-ticket](skills/engineering/implement-ticket/SKILL.md) | Builds one ticket. Checks its blockers, ticks the acceptance criteria, reviews. Never commits. |
 | [e2e](skills/engineering/e2e/SKILL.md) | Drives the real app until the change provably works. Fixes what breaks. |
@@ -65,7 +65,7 @@ Prompts you just copy and paste. Nothing to install.
 | [throwaway-prototype](skills/engineering/throwaway-prototype/SKILL.md) | One standalone HTML page, variants on a query param. |
 | [single-prototype](skills/engineering/single-prototype/SKILL.md) | The same page, one version only: the thing you'd actually build. |
 | [html-planning](skills/engineering/html-planning/SKILL.md) | Grilling, but the interview lives on an HTML page instead of the terminal. |
-| [spec-code-review](skills/engineering/spec-code-review/SKILL.md) | Two-axis diff review: repo standards, and faithfulness to the spec. |
+| [spec-code-review](skills/engineering/spec-code-review/SKILL.md) | Two-axis review of the uncommitted changes: repo standards, and faithfulness to the spec. |
 | [thermo-nuclear-code-quality-review](skills/engineering/thermo-nuclear-code-quality-review/SKILL.md) | Harsh audit: abstractions, file size, spaghetti. |
 | [ponytail-review](skills/engineering/ponytail-review/SKILL.md) | Over-engineering only. What to delete, what stdlib already does. |
 | [super-code-review](skills/engineering/super-code-review/SKILL.md) | Runs four reviewers in parallel, verifies findings, then fixes. |
@@ -120,7 +120,7 @@ For the [cmux](https://cmux.com) terminal only — each skill drives real tabs o
 
 ## Credit
 
-`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grill-me` and `tdd` are copied as-is; `grilling`, `prototype`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` carry my own edits on top (`grilling` asks one question at a time; `prototype` defaults to 5 UI variants instead of 3 and has a shorter description; `to-local-tickets` is upstream's `to-tickets`, publishing tickets as local files instead of a tracker; `spec-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`, and it takes the spec path from you instead of looking it up on an issue tracker).
+`grilling`, `grill-me`, `prototype`, `tdd`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` are Matt Pocock's, from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright (c) Matt Pocock). `grill-me` and `tdd` are copied as-is; `grilling`, `prototype`, `to-spec`, `to-local-tickets`, `handoff` and `spec-code-review` carry my own edits on top (`grilling` never uses the question popup and puts each option on its own line; `prototype` defaults to 5 UI variants instead of 3 and has a shorter description; `to-local-tickets` is upstream's `to-tickets`, publishing tickets as local files instead of a tracker; `spec-code-review` is upstream's `code-review`, renamed to avoid colliding with Claude Code's built-in `/code-review`, it takes the spec path from you instead of looking it up on an issue tracker, and it reviews uncommitted changes instead of a branch diff).
 
 `implement-spec` is a rewrite of his `skills/in-progress/implement-spec`, copied at `5b15a47` and reworked to produce uncommitted work on the current branch instead of a worktree, a branch and a PR. His structure stayed: spec plus tickets as a task graph with a frontier, sparse subagent comms through context pointers, implementer subagents working the frontier.
 

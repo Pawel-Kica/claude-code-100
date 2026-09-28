@@ -11,7 +11,7 @@ Ask one question only if you can't tell what "done" looks like. Otherwise don't 
 Write `~/.claude/skills/<name>/SKILL.md`:
 - frontmatter:
   - `name`
-  - `description`: what it does plus trigger phrase, under 50 tokens
+  - `description`: what it does plus trigger phrase. Name + description ≤ 120 chars (≤ 40 tok in `/skills`, which counts chars / 3). The name already works as `/name`, so no `Trigger /name`
   - `argument-hint` if it takes input
 - body: 
   - the goal and what done looks like
@@ -70,7 +70,7 @@ Steps:
 1. Copy the ticket to repo `docs/specs/<name>/tickets/`.
 2. Read the ticket + the spec sections it touches.
 3. Check **Blocked by**. Blocker missing from the code -> say so, stop.
-4. Read repo `CLAUDE.md`, follow it.
+4. Read repo `AGENTS.md` or `CLAUDE.md`, follow it.
 5. Implement. Tick the acceptance criteria in the repo ticket file.
 6. Run `/spec-code-review`, fix what it raises.
 7. Recap, 2-4 lines.

@@ -20,7 +20,7 @@ Implement one or more tickets, end to end, as uncommitted work on the current br
 
 3. Check **Blocked by** - numbering is dependency order, so ticket 03 means 01 and 02 are done. Blocker missing from the code -> say so, stop.
 
-4. Read repo `CLAUDE.md`, follow it.
+4. Read repo `AGENTS.md` or `CLAUDE.md`, follow it.
 
 5. Implement, ticket by ticket in numbering order. Tick the acceptance criteria in each repo ticket file.
 
