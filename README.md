@@ -82,8 +82,8 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sc
 | [variants](skills/productivity/variants/SKILL.md) | 3-5 real variants of anything on one tabbed page. You pick instead of explaining. |
 | [copy](skills/productivity/copy/SKILL.md) | Pulls one piece of the last reply to your clipboard. |
 | [past-conversations](skills/productivity/past-conversations/SKILL.md) | Search or resume past Claude Code chats by topic. |
-| [writing-assistant](skills/productivity/writing-assistant/SKILL.md) | Drafts and polishes any text in your plain voice. Learns from your feedback. |
-| [unslop](skills/productivity/unslop/SKILL.md) | Cuts AI tells from any writing. `writing-assistant` runs it. |
+| [improve-writing](skills/productivity/improve-writing/SKILL.md) | Drafts and polishes any text in your plain voice. Learns from your feedback. |
+| [unslop](skills/productivity/unslop/SKILL.md) | Cuts AI tells from any writing. `improve-writing` runs it. |
 | [show-diff](skills/productivity/show-diff/SKILL.md) | Shows the edit as a diff and waits for your yes. |
 | [prompt-helper](skills/productivity/prompt-helper/SKILL.md) | Turns a rough idea into a short, direct prompt for an agent. |
 | [say-it-simply](skills/productivity/say-it-simply/SKILL.md) | Re-says the last answer short and human, when it came out as slop. |

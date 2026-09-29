@@ -1,5 +1,5 @@
 ---
-name: writing-assistant
+name: improve-writing
 description: "Draft, polish or take voice feedback on any text in my plain voice. Trigger 'polish this', 'feedback:'."
 argument-hint: "<text | what to write | feedback: what I liked or didn't>"
 ---
@@ -19,7 +19,7 @@ Modes:
 2. Run `/unslop` on it.
 3. Plain pass: words you'd say out loud, decision -> lead with the choice, mechanism -> explain it like at a whiteboard.
 4. Print the final text only, formatted for the medium (Slack bold = *single asterisks*). No before/after, no commentary.
-5. I reply "copy" -> run `/clipboard-copy`. Never before.
+5. I reply "copy" -> run `/copy`. Never before.
 
 ## Feedback
 
