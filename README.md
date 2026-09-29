@@ -95,7 +95,7 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sc
 
 ### cmux
 
-For the [cmux](https://cmux.com) terminal only — each skill drives real tabs over its control CLI.
+For the [cmux](https://cmux.com) terminal only. Each skill drives real tabs over its control CLI.
 
 | | |
 |---|---|
@@ -103,7 +103,7 @@ For the [cmux](https://cmux.com) terminal only — each skill drives real tabs o
 | [close-cmux-tab](skills/cmux/close-cmux-tab/SKILL.md) | Closes the tab the session is running in. One action, no questions. |
 | [replace-current-session](skills/cmux/replace-current-session/SKILL.md) | Handoff, fresh session in a new tab, closes itself. For when context runs deep. |
 
-`replace-current-session` chains `handoff` and `spawn-new-session` — install all three.
+`replace-current-session` chains `handoff` and `spawn-new-session`, so install all three.
 
 
 ## What works
