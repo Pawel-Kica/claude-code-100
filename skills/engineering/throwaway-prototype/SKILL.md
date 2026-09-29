@@ -10,7 +10,7 @@ Run `/prototype`'s UI branch with these overrides:
 - Read the repo's colors, spacing, fonts, and components. Match them closely.
 
 Save to `~/.claude/specs/<name>/<slug>.html` when scoping a spec (`<name>` = slug picked at the start of `/scope`), otherwise `~/.claude/prototypes/<slug>.html`.
-Copy the path per `/clipboard-copy`.
+Copy the path per `/copy`.
 
 Please use `playwright-cli` (from `/tmp`, own `-s=` session: `playwright-cli -s=<name> open file://<path>`, `console error`, `screenshot`, `close`) to do super-simple verification in order to check that the prototype is loading - DON'T DO A LOT OF CHECKS, JUST BASIC CHECK TO PROOF IT LOADS.
 Basically we want to avoid e.g. "js build" errors, so user doesn't need to prompt again saying "prototype doesn't work". 

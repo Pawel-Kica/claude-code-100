@@ -18,7 +18,7 @@ Page:
 - render each variant as close to its real form as possible (LinkedIn post -> looks like a LinkedIn post, image -> the image)
 - style per `/html`
 
-Save to `~/.claude/variants/<slug>.html`. Copy the path per `/clipboard-copy`.
+Save to `~/.claude/variants/<slug>.html`. Copy the path per `/copy`.
 
 Basic check it loads, nothing more: from `/tmp`, `playwright-cli -s=<slug> open file://<path>`, then `console error`, `screenshot`, `close`. Broken -> fix.
 

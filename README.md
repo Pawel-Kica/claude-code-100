@@ -80,7 +80,7 @@ The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `sc
 | [caveman](skills/productivity/caveman/SKILL.md) | Cuts the fluff, keeps the substance. |
 | [html](skills/productivity/html/SKILL.md) | Renders an answer as a page and opens it. For things markdown ruins. |
 | [variants](skills/productivity/variants/SKILL.md) | 3-5 real variants of anything on one tabbed page. You pick instead of explaining. |
-| [clipboard-copy](skills/productivity/clipboard-copy/SKILL.md) | Pulls one piece of the last reply to your clipboard. |
+| [copy](skills/productivity/copy/SKILL.md) | Pulls one piece of the last reply to your clipboard. |
 | [past-conversations](skills/productivity/past-conversations/SKILL.md) | Search or resume past Claude Code chats by topic. |
 | [writing-assistant](skills/productivity/writing-assistant/SKILL.md) | Drafts and polishes any text in your plain voice. Learns from your feedback. |
 | [unslop](skills/productivity/unslop/SKILL.md) | Cuts AI tells from any writing. `writing-assistant` runs it. |
