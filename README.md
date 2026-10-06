@@ -105,6 +105,18 @@ For the [cmux](https://cmux.com) terminal only. Each skill drives real tabs over
 
 `replace-current-session` chains `handoff` and `spawn-new-session`, so install all three.
 
+### t3code
+
+For the [T3 Code](https://github.com/pingdotgg/t3code) app only, Claude threads.
+
+| | |
+|---|---|
+| [t3-new-session](skills/t3code/t3-new-session/SKILL.md) | Hands work to a fresh Claude thread in the running app. |
+| [t3-settle](skills/t3code/t3-settle/SKILL.md) | Moves the thread to Settled once the turn ends. Add `$t3-settle` to any prompt. |
+| [t3-replace-session](skills/t3code/t3-replace-session/SKILL.md) | Handoff, fresh thread continues the work, this one settles. For when context runs deep. |
+
+`t3-replace-session` chains `handoff`, `t3-new-session` and `t3-settle`, so install all four.
+
 
 ## What works
 
