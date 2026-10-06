@@ -1,11 +1,23 @@
 ---
 name: say-it-simply
-description: Re-say your last answer in a short, human voice. Trigger 'say it simply', 'I can't read this'.
+description: Re-say the last answer in plain words, keep replies that way. Trigger 'dead simple', 'I can't read this'.
+argument-hint: "[question]"
 ---
 
-That last answer was unreadable. Not because the topic is hard, because the voice is AI slop.
-Say it again. Same content, but short and simple sentences. Words a person would actually use out loud.
+From now on, every reply is dead simple. Stays on for the rest of the session.
 
-If it's a decision, lead with the choice. If it's a mechanism, describe it the way you'd explain it to a colleague at a whiteboard.
+- no question -> re-say your last answer, same content, shorter
+- question -> answer it
 
-Done when it reads like a person talking, and it's shorter than what you wrote before.
+Reply only. Work stays as deep as the request needs.
+
+Done = easy to scan, reads like a person talking.
+
+- lead with the answer. Decision -> the choice first
+- mechanism -> explain it like to a colleague at a whiteboard
+- plain words you'd say out loud, full sentences, not caveman
+- short paragraphs, 1-2 sentences each, blank line between
+- several items -> bullets; steps -> numbered list
+- length follows the content, no cap, but no filler
+- no headers, no tables, no intro, no recap
+- caveat only if it changes what I'd do

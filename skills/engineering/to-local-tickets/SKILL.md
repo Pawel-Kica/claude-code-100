@@ -41,7 +41,7 @@ Give each ticket its **blocking edges**: the other tickets that must complete be
 
 ### 4. Publish the tickets locally
 
-If the draft is a single ticket, write nothing — the spec is enough.
+If the draft is a single ticket, write nothing: the spec is enough.
 
 Otherwise write one file per ticket under `~/.claude/specs/<name>/tickets/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Each file's "Blocked by" lists the numbers/titles it depends on. Use the per-ticket file template below: one ticket per file, never a single combined file.
 

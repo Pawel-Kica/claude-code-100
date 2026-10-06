@@ -11,7 +11,7 @@ Ask one question only if you can't tell what "done" looks like. Otherwise don't 
 Write `~/.claude/skills/<name>/SKILL.md`:
 - frontmatter:
   - `name`
-  - `description`: what it does plus trigger phrase. Name + description ≤ 120 chars (≤ 40 tok in `/skills`, which counts chars / 3). The name already works as `/name`, so no `Trigger /name`
+  - `description`: what it does plus trigger phrase. Name + description under 50 tok in `/skills` (counts chars / 3, so under 150 chars). The name already works as `/name`, so no `Trigger /name`
   - `argument-hint` if it takes input
 - body: 
   - the goal and what done looks like

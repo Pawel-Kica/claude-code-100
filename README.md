@@ -68,7 +68,7 @@ Prompts you just copy and paste. Nothing to install.
 | [spec-code-review](skills/engineering/spec-code-review/SKILL.md) | Two-axis review of the uncommitted changes: repo standards, and faithfulness to the spec. |
 | [thermo-nuclear-code-quality-review](skills/engineering/thermo-nuclear-code-quality-review/SKILL.md) | Harsh audit: abstractions, file size, spaghetti. |
 | [ponytail-review](skills/engineering/ponytail-review/SKILL.md) | Over-engineering only. What to delete, what stdlib already does. |
-| [super-code-review](skills/engineering/super-code-review/SKILL.md) | Runs four reviewers in parallel, verifies findings, then fixes. |
+| [super-code-review](skills/engineering/super-code-review/SKILL.md) | Two parallel reviewers, structure and over-engineering, verifies findings, then fixes. |
 | [fix-code-conventions](skills/engineering/fix-code-conventions/SKILL.md) | Fixes your diff against the repo's `docs/agents/code-conventions.md` and adds your feedback to it as examples. |
 
 The scope pipeline writes specs to `~/.claude/specs/`, never into your repo. `scope` chains the whole thing: research, grill, optionally `tdd`, `to-spec`, then `spec-review`. `implement-spec` copies the one you name into `docs/specs/` and builds it.
