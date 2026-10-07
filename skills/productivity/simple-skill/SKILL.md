@@ -16,7 +16,7 @@ Write `~/.claude/skills/<name>/SKILL.md`:
 - body: 
   - the goal and what done looks like
   - numbered steps only when order matters
-  - caveman voice: imperative fragments, arrows, no filler verbs. `- all tickets: <path>`, never "all tickets live in <path>"
+  - human voice: short paragraphs of 1-2 plain sentences, blank line between, like talking to a colleague. Bullets only when it really is a list
 
 Before saving, delete:
 - lines that don't change behavior: "be thorough", "make it readable", "high quality", "carefully"
