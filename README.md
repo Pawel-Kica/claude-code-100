@@ -64,6 +64,7 @@ Prompts you just copy and paste. Nothing to install.
 | [prototype](skills/engineering/prototype/SKILL.md) | Throwaway code that answers a design question. |
 | [throwaway-prototype](skills/engineering/throwaway-prototype/SKILL.md) | One standalone HTML page, variants on a query param. |
 | [single-prototype](skills/engineering/single-prototype/SKILL.md) | The same page, one version only: the thing you'd actually build. |
+| [pretty-design](skills/engineering/pretty-design/SKILL.md) | Builds or polishes a UI through a subagent on two design skills, your own rules win. Screenshots prove it. |
 | [html-planning](skills/engineering/html-planning/SKILL.md) | Grilling, but the interview lives on an HTML page instead of the terminal. |
 | [spec-code-review](skills/engineering/spec-code-review/SKILL.md) | Two-axis review of the uncommitted changes: repo standards, and faithfulness to the spec. |
 | [thermo-nuclear-code-quality-review](skills/engineering/thermo-nuclear-code-quality-review/SKILL.md) | Harsh audit: abstractions, file size, spaghetti. |
@@ -137,6 +138,8 @@ For the [T3 Code](https://github.com/pingdotgg/t3code) app only, Claude threads.
 `implement-spec` is a rewrite of his `skills/in-progress/implement-spec`, copied at `5b15a47` and reworked to produce uncommitted work on the current branch instead of a worktree, a branch and a PR. His structure stayed: spec plus tickets as a task graph with a frontier, sparse subagent comms through context pointers, implementer subagents working the frontier.
 
 `unslop` is Lauren Tan's, from pstack in [cursor/plugins](https://github.com/cursor/plugins/tree/main/pstack) (MIT, Copyright (c) 2026 Lauren Tan). Its rules go back to [blader/humanizer](https://github.com/blader/humanizer) (MIT), built on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing). My copy puts back the humanizer rules pstack dropped and adds a section on giving text a voice.
+
+`pretty-design` ships two skills as-is, each with its license next to it: `taste.md` from [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) (MIT, Copyright (c) 2026 Leonxlnx) and `frontend-design.md` from [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/frontend-design) (Apache 2.0).
 
 ## License
 
