@@ -1,15 +1,15 @@
-# claude code 100
+# ai coding 100
 
-Extremely useful prompts and skills for Claude Code.
+Extremely useful prompts and skills for AI coding.
 
 ## Install
 
-Paste this into Claude Code:
+Paste this into Claude Code or Codex:
 
 ```
-Clone https://github.com/Pawel-Kica/claude-code-100.
+Clone https://github.com/Pawel-Kica/ai-coding-100.
 
-Then copy every skill folder in skills/*/*/ into ~/.claude/skills/, keeping its own name. 
+Then copy every skill folder in skills/*/*/ into ~/.claude/skills/ (Claude Code) or ~/.agents/skills/ (Codex), keeping its own name. 
 The whole folder, not just the SKILL.md: html ships an examples/ it links to, tdd ships reference files, the e2e skills ship report templates.
 
 If I already have a skill by that name, stop and ask before touching it.
