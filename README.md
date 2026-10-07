@@ -111,11 +111,11 @@ For the [T3 Code](https://github.com/pingdotgg/t3code) app only, Claude threads.
 
 | | |
 |---|---|
-| [t3-new-session](skills/t3code/t3-new-session/SKILL.md) | Hands work to a fresh Claude thread in the running app. |
-| [t3-settle](skills/t3code/t3-settle/SKILL.md) | Moves the thread to Settled once the turn ends. Add `$t3-settle` to any prompt. |
-| [t3-replace-session](skills/t3code/t3-replace-session/SKILL.md) | Handoff, fresh thread continues the work, this one settles. For when context runs deep. |
+| [t3-new-thread](skills/t3code/t3-new-thread/SKILL.md) | Hands work to a fresh Claude thread in the running app. |
+| [t3-settle-thread](skills/t3code/t3-settle-thread/SKILL.md) | Moves the thread to Settled once the turn ends. Add `$t3-settle-thread` to any prompt. |
+| [t3-replace-thread](skills/t3code/t3-replace-thread/SKILL.md) | Handoff, fresh thread continues the work, this one settles. For when context runs deep. |
 
-`t3-replace-session` chains `handoff`, `t3-new-session` and `t3-settle`, so install all four.
+`t3-replace-thread` chains `handoff`, `t3-new-thread` and `t3-settle-thread`, so install all four.
 
 
 ## What works

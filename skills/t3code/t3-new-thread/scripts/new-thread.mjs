@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// new-session.mjs - start a new T3 Code thread in the running desktop app.
+// new-thread.mjs - start a new T3 Code thread in the running desktop app.
 //
-// Usage: node new-session.mjs --prompt <text> [--cwd <project dir>] [--image <path>]...
+// Usage: node new-thread.mjs --prompt <text> [--cwd <project dir>] [--image <path>]...
 //
 // Talks to the local server the way the mobile app does: one `thread.turn.start`
 // command with `bootstrap.createThread`, sent as Effect RPC over the WebSocket.
@@ -82,7 +82,7 @@ try {
 
 const token = execFileSync(
   "t3",
-  ["auth", "session", "issue", "--token-only", "--ttl", "5m", "--label", "new-session"],
+  ["auth", "session", "issue", "--token-only", "--ttl", "5m", "--label", "new-thread"],
   { encoding: "utf8" },
 ).trim();
 const ticketResponse = await fetch(`${origin}/api/auth/websocket-ticket`, {
